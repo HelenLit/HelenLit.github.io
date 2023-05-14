@@ -1,0 +1,244 @@
+[
+    {
+        "id": 1,
+        "name": "Classical guitar Alfabeto Classic44",
+        "category": "guitar",
+        "subcategory": "classical",
+        "price": 5055,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 2,
+        "name": "Classical Guitar Salvador Cortez SC-144",
+        "category": "guitar",
+        "subcategory": "classical",
+        "price": 5055,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 3,
+        "name": "Classical guitar Yamaha С40B",
+        "category": "guitar",
+        "subcategory": "classical",
+        "price": 6336,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 4,
+        "name": "Acoustic Guitar Cort AD880 (Natural Satin)",
+        "category": "guitar",
+        "subcategory": "acoustic",
+        "price": 6309,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 5,
+        "name": "Acoustic guitar Alfabeto Gamma (Sunburst)",
+        "category": "guitar",
+        "subcategory": "acoustic",
+        "price": 16170,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 6,
+        "name": "Acoustic Guitar Richwood RD-12 (Sunburst)",
+        "category": "guitar",
+        "subcategory": "acoustic",
+        "price": 7014,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 7,
+        "name": "Ukulele Figure UKU1-LYW",
+        "category": "guitar",
+        "subcategory": "ukulele",
+        "price": 980,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 8,
+        "name": "Ukulele Alfabeto MAHOGANY USM21",
+        "category": "guitar",
+        "subcategory": "ukulele",
+        "price": 2394,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 9,
+        "name": "Guitarlele Yamaha GL1 (Black)",
+        "category": "guitar",
+        "subcategory": "ukulele",
+        "price": 5784,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 10,
+        "name": "Bongo Hayman BG-402-WH",
+        "category": "drums",
+        "subcategory": "hand",
+        "price": 2142,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 11,
+        "name": "Djembe Remo DJ0010PM",
+        "category": "drums",
+        "subcategory": "hand",
+        "price": 13161,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 12,
+        "name": "Djembe Kangaba KMDM14-CL",
+        "category": "drums",
+        "subcategory": "hand",
+        "price": 11592,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 13,
+        "name": "Drum Kit Premier 64099-44RGW PHS PowerHouse ModernRock22 (Red Groove)",
+        "category": "drums",
+        "subcategory": "acoustic set",
+        "price": 17952,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 14,
+        "name": "Drumset Premier 22892S PS Classic Stage 22",
+        "category": "drums",
+        "subcategory": "acoustic set",
+        "price": 155193,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 15,
+        "name": "Drum Set Pearl MDT-764P/C704",
+        "category": "drums",
+        "subcategory": "acoustic set",
+        "price": 25038,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 16,
+        "name": "Drum Cymbal Zalizo Ride 20'' (1,20 mm) Zil-series",
+        "category": "drums",
+        "subcategory": "cymbal",
+        "price": 3483,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 17,
+        "name": "Drum Cymbal Zalizo Ride 20'' Dark-series",
+        "category": "drums",
+        "subcategory": "cymbal",
+        "price": 7526,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 18,
+        "name": "Drum Cymbal Zalizo Crash 16'' Extra-series",
+        "category": "drums",
+        "subcategory": "cymbal",
+        "price": 5583,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 19,
+        "name": "Piano Kawai K-15E Mahogany Polished",
+        "category": "keyboards",
+        "subcategory": "piano",
+        "price": 219736,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 20,
+        "name": "Piano Yamaha U1 Polished White",
+        "category": "keyboards",
+        "subcategory": "piano",
+        "price": 591186,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 21,
+        "name": "Piano Yamaha JX113T",
+        "category": "keyboards",
+        "subcategory": "piano",
+        "price": 201630,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 22,
+        "name": "Synthesizer Yamaha Montage 8",
+        "category": "keyboards",
+        "subcategory": "synthesizer",
+        "price": 208908,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 23,
+        "name": "Synthesizer Casio CT-S1RDC7",
+        "category": "keyboards",
+        "subcategory": "synthesizer",
+        "price": 10920,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 24,
+        "name": "Synthesizer Casio SA-50",
+        "category": "keyboards",
+        "subcategory": "synthesizer",
+        "price": 2800,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 25,
+        "name": "Digital Harpsichord Roland C-30",
+        "category": "keyboards",
+        "subcategory": "harpsichord",
+        "price": 199240,
+        "photo": ".\\1.png"
+    },
+
+    {
+        "id": 26,
+        "name": "Digital Harpsichord Roland C-80",
+        "category": "keyboards",
+        "subcategory": "harpsichord",
+        "price": 102013,
+        "photo": ".\\1.png"
+    },
+    
+    {
+        "id": 27,
+        "name": "Digital Harpsichord Roland C-80-AK",
+        "category": "keyboards",
+        "subcategory": "harpsichord",
+        "price": 163768,
+        "photo": ".\\1.png"
+    }
+]
