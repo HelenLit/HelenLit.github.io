@@ -6,9 +6,10 @@ hideEmailBtn.addEventListener('click', function() {
   hideEmailBtn.style.display = 'none';
 });
 
+
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
-
+const subcategory = urlParams.get('subcategory');
 
 // Отримуємо контейнер, в який будемо додавати продукти
 const productsContainer = document.getElementById('products-list');
@@ -18,8 +19,12 @@ const productCountElement = document.getElementById('product-count');
 fetch('products.json')
   .then(response => response.json())
   .then(products => {
+    // Очищуємо контейнер від попереднього списку продуктів
+    productsContainer.innerHTML = '';
     // Фільтруємо продукти за заданою категорією
-    const filteredProducts = products.filter(product => product.category === category);
+        // Фільтруємо продукти за заданою категорією або виводимо всі продукти, якщо категорія не вказана
+    // Фільтруємо продукти спочатку за категорією, а якщо категорія пуста, то за підкатегорією, якщо і підкатегорія пуста, то виводимо всі продукти
+    const filteredProducts = category ? products.filter(product => product.category === category) : subcategory ? products.filter(product => product.subcategory === subcategory) : products;
 
     // Для кожного продукту в JSON-файлі створюємо HTML-блок
     filteredProducts.forEach(product => {

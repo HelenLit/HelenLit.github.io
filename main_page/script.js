@@ -12,6 +12,8 @@ function redirectToNewPage(category) {
     window.location.href = './main.html?category=' + category;
   }
 
-
+  function redirectToNewPageSubCategory(subcategory) {
+    window.location.href = './main.html?subcategory=' + subcategory;
+  }
 
   // onclick="window.open('./main.html', '_blank');"
