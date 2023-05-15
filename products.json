@@ -5,7 +5,7 @@
         "category": "guitar",
         "subcategory": "classical",
         "price": 5055,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Alfabeto.png"
     },
 
     {
@@ -14,7 +14,7 @@
         "category": "guitar",
         "subcategory": "classical",
         "price": 5055,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Salvador.png"
     },
 
     {
@@ -23,7 +23,7 @@
         "category": "guitar",
         "subcategory": "classical",
         "price": 6336,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Yamah.png"
     },
 
     {
@@ -32,7 +32,7 @@
         "category": "guitar",
         "subcategory": "acoustic",
         "price": 6309,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\CortAD880.png"
     },
 
     {
@@ -41,7 +41,7 @@
         "category": "guitar",
         "subcategory": "acoustic",
         "price": 16170,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Gamma(Sunburst).png"
     },
 
     {
@@ -50,7 +50,7 @@
         "category": "guitar",
         "subcategory": "acoustic",
         "price": 7014,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Richwood.png"
     },
 
     {
@@ -59,7 +59,7 @@
         "category": "guitar",
         "subcategory": "ukulele",
         "price": 980,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\UkuleleFigure.png"
     },
 
     {
@@ -68,7 +68,7 @@
         "category": "guitar",
         "subcategory": "ukulele",
         "price": 2394,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\yamh.png"
     },
 
     {
@@ -77,7 +77,7 @@
         "category": "guitar",
         "subcategory": "ukulele",
         "price": 5784,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\YamahaGL1.png"
     },
 
     {
@@ -86,7 +86,7 @@
         "category": "drums",
         "subcategory": "hand",
         "price": 2142,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\BongoHayman.png"
     },
 
     {
@@ -95,7 +95,7 @@
         "category": "drums",
         "subcategory": "hand",
         "price": 13161,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Djembe.png"
     },
 
     {
@@ -104,7 +104,7 @@
         "category": "drums",
         "subcategory": "hand",
         "price": 11592,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Kangaba.png"
     },
 
     {
@@ -113,7 +113,7 @@
         "category": "drums",
         "subcategory": "acoustic set",
         "price": 17952,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\DrumKit.png"
     },
 
     {
@@ -122,7 +122,7 @@
         "category": "drums",
         "subcategory": "acoustic set",
         "price": 155193,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\DrumSetPearl.png"
     },
 
     {
@@ -131,7 +131,7 @@
         "category": "drums",
         "subcategory": "acoustic set",
         "price": 25038,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\DrumsetPremier.png"
     },
 
     {
@@ -140,7 +140,7 @@
         "category": "drums",
         "subcategory": "cymbal",
         "price": 3483,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Zil-series.png"
     },
 
     {
@@ -149,7 +149,7 @@
         "category": "drums",
         "subcategory": "cymbal",
         "price": 7526,
-        "photo": ".\\1.png"
+        "photo": "\\catalogue\\products\\Dark-series.png"
     },
 
     {
@@ -158,7 +158,7 @@
         "category": "drums",
         "subcategory": "cymbal",
         "price": 5583,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\Extra-series.png"
     },
 
     {
@@ -167,7 +167,7 @@
         "category": "keyboards",
         "subcategory": "piano",
         "price": 219736,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano1.png"
     },
 
     {
@@ -176,7 +176,7 @@
         "category": "keyboards",
         "subcategory": "piano",
         "price": 591186,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano2.png"
     },
 
     {
@@ -185,7 +185,7 @@
         "category": "keyboards",
         "subcategory": "piano",
         "price": 201630,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano3.png"
     },
 
     {
@@ -194,7 +194,7 @@
         "category": "keyboards",
         "subcategory": "synthesizer",
         "price": 208908,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano4.png"
     },
 
     {
@@ -203,7 +203,7 @@
         "category": "keyboards",
         "subcategory": "synthesizer",
         "price": 10920,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano5.png"
     },
 
     {
@@ -212,7 +212,7 @@
         "category": "keyboards",
         "subcategory": "synthesizer",
         "price": 2800,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano6.png"
     },
 
     {
@@ -221,7 +221,7 @@
         "category": "keyboards",
         "subcategory": "harpsichord",
         "price": 199240,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano7.png"
     },
 
     {
@@ -230,7 +230,7 @@
         "category": "keyboards",
         "subcategory": "harpsichord",
         "price": 102013,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano8.png"
     },
     
     {
@@ -239,6 +239,6 @@
         "category": "keyboards",
         "subcategory": "harpsichord",
         "price": 163768,
-        "photo": ".\\1.png"
+        "photo": ".\\catalogue\\products\\piano9.png"
     }
 ]
