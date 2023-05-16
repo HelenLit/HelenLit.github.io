@@ -257,3 +257,62 @@ function sortProductsByNameZtoA() {
 
 /* -------------------------------------------------------------------------------------------------- */
 
+function filterProducts() {
+  const selectedCategories = [];
+
+  const guitarsSelect = document.getElementById('select-guitars');
+  const drumsSelect = document.getElementById('select-drums');
+  const keyboardsSelect = document.getElementById('select-keyboards');
+
+  if (guitarsSelect.value !== "") {
+    selectedCategories.push(guitarsSelect.value);
+  }
+  if (drumsSelect.value !== "") {
+    selectedCategories.push(drumsSelect.value);
+  }
+  if (keyboardsSelect.value !== "") {
+    selectedCategories.push(keyboardsSelect.value);
+  }
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      const filteredProducts = products.filter(product => {
+        return selectedCategories.includes(product.subcategory);
+      });
+
+      // Виведення відфільтрованих продуктів
+      renderProducts(filteredProducts);
+    })
+    .catch(error => console.error(error));
+}
+
+function renderProducts(products) {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  productsContainer.innerHTML = '';
+
+  products.forEach(product => {
+    const productElement = document.createElement('li');
+    productElement.classList.add('product');
+    productElement.setAttribute('data-id', product.id);
+    productElement.innerHTML = `
+      <img class="itemi" src="${product.photo}" alt="product" />
+      <h3>${product.name}</h3>
+      <div class="category">${product.subcategory} ${product.category}</div>
+      <div class="price">${product.price}</div>
+      <button class="buy_now">Buy now</button>
+    `;
+
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = products.length + " Products";
+}
+
+// Додати обробники подій для виклику функції filterProducts
+const selectElements = document.querySelectorAll('select[name="select"]');
+selectElements.forEach(select => {
+  select.addEventListener('change', filterProducts);
+});
