@@ -51,3 +51,44 @@ fetch('products.json')
   .catch(error => console.error(error));
 
 
+
+  function searchProducts() {
+    const searchTerm = document.querySelector('.searchTerm').value.toLowerCase();
+    const productsContainer = document.getElementById('products-list');
+    const productCountElement = document.getElementById('product-count');
+  
+    fetch('products.json')
+      .then(response => response.json())
+      .then(products => {
+        productsContainer.innerHTML = '';
+        const filteredProducts = products.filter(product => {
+          const productName = product.name.toLowerCase();
+          const productCategory = product.category.toLowerCase();
+          const productSubcategory = product.subcategory.toLowerCase();
+  
+          return (
+            productName.includes(searchTerm) ||
+            productCategory.includes(searchTerm) ||
+            productSubcategory.includes(searchTerm)
+          );
+        });
+  
+        filteredProducts.forEach(product => {
+          const productElement = document.createElement('li');
+          productElement.classList.add('product');
+          productElement.setAttribute('data-id', product.id);
+          productElement.innerHTML = `
+            <img class="itemi" src="${product.photo}" alt="product" />
+            <h3>${product.name}</h3>
+            <div class="category">${product.subcategory} ${product.category}</div>
+            <div class="price">${product.price}</div>
+            <button class="buy_now">Buy now</button>
+          `;
+  
+          productsContainer.appendChild(productElement);
+        });
+  
+        productCountElement.textContent = filteredProducts.length + " Products";
+      })
+      .catch(error => console.error(error));
+  }
