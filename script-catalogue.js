@@ -479,6 +479,175 @@ function updateMaxPriceSlider() {
 /* -------------------------------------------------------------------------------------------------- */
 
 
+const btn = document.getElementById("apply-filters-button");
+btn.addEventListener('click', (event) => {
+  let checkboxes = document.querySelectorAll('input[name="color"]:checked');
+  let values = [];
+  checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+  });
+
+  const productsContainer = document.getElementById('products-list');
+  productsContainer.innerHTML = ""; // Очистити контейнер перед виводом нових продуктів
+
+  // Завантажуємо JSON-файл зі списком продуктів
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      const filteredProducts = filterProductsByCategoryAndSubcategory(products, values);
+      searchProductsByPrice(filteredProducts, productsContainer); // Викликаємо функцію для пошуку продуктів за ціною
+    })
+    .catch(error => console.error(error));
+});
+
+function filterProductsByCategoryAndSubcategory(products, values) {
+  return products.filter(product => {
+    let categoryMatch = false;
+    let subcategoryMatch = false;
+
+    // Перевіряємо збіг категорії продукту зі списком обраних категорій
+    if (values.includes(product.category)) {
+      categoryMatch = true;
+    }
+
+    // Перевіряємо збіг підкатегорії продукту зі списком обраних підкатегорій
+    if (values.includes(product.subcategory)) {
+      subcategoryMatch = true;
+    }
+
+    return categoryMatch || subcategoryMatch;
+  });
+}
+
+function searchProductsByPrice(products, productsContainer) {
+  const productCountElement = document.getElementById('product-count');
+  const minPrice = parseInt(document.getElementById('Min').value);
+  const maxPrice = parseInt(document.getElementById('Max').value);
+
+  const filteredProducts = products.filter(product => {
+    const productPrice = parseInt(product.price);
+    return productPrice >= minPrice && productPrice <= maxPrice;
+  });
+
+  filteredProducts.forEach(product => {
+    const productElement = document.createElement('div');
+    productElement.classList.add('product');
+    productElement.setAttribute('data-id', product.id);
+    productElement.innerHTML = `
+    <img class="itemi" src="${product.photo}" alt="product" />
+    <h3>${product.name}</h3>
+    <div class="category">${product.subcategory} ${product.category}</div>
+    <div class="price">${product.price}</div>
+    <button class="buy_now">Buy now</button>
+    `;
+
+    // Додаємо HTML-блок до контейнера
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = filteredProducts.length + " Products";
+}
+
+
+
+
+const resetButton = document.getElementById("reset-filters-button");
+resetButton.addEventListener('click', (event) => {
+  // Забираємо галочки зі списку
+  const checkboxes = document.querySelectorAll('input[name="color"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = true;
+  });
+
+  // Очищаємо значення ціни
+  document.getElementById('Min').value = '';
+  document.getElementById('Max').value = '';
+
+  // Очищаємо контейнер з продуктами
+  const productsContainer = document.getElementById('products-list');
+  productsContainer.innerHTML = '';
+
+  // Відновлюємо всі доступні товари
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.setAttribute('data-id', product.id);
+        productElement.innerHTML = `
+        <img class="itemi" src="${product.photo}" alt="product" />
+        <h3>${product.name}</h3>
+        <div class="category">${product.subcategory} ${product.category}</div>
+        <div class="price">${product.price}</div>
+        <button class="buy_now">Buy now</button>
+        `;
+
+        // Додаємо HTML-блок до контейнера
+        productsContainer.appendChild(productElement);
+      });
+    })
+    .catch(error => console.error(error));
+});
+
+
+/*
+
+ чернетка
+
+const btn = document.getElementById("apply-filters-button");
+btn.addEventListener('click', (event) => {
+  let checkboxes = document.querySelectorAll('input[name="color"]:checked');
+  let values = [];
+  checkboxes.forEach((checkbox) => {
+    values.push(checkbox.value);
+  });
+
+  const productsContainer = document.getElementById('products-list');
+  productsContainer.innerHTML = ""; // Очистити контейнер перед виводом нових продуктів
+
+  // Завантажуємо JSON-файл зі списком продуктів
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      // Для кожного продукту в JSON-файлі перевіряємо, чи він відповідає обраним категоріям та підкатегоріям
+      products.forEach(product => {
+        let categoryMatch = false;
+        let subcategoryMatch = false;
+
+        // Перевіряємо збіг категорії продукту зі списком обраних категорій
+        if (values.includes(product.category)) {
+          categoryMatch = true;
+        }
+
+        // Перевіряємо збіг підкатегорії продукту зі списком обраних підкатегорій
+        if (values.includes(product.subcategory)) {
+          subcategoryMatch = true;
+        }
+
+        // Якщо знайдено збіг категорії або підкатегорії, виводимо продукт
+        if (categoryMatch || subcategoryMatch) {
+          const productElement = document.createElement('div');
+          productElement.classList.add('product');
+          productElement.setAttribute('data-id', product.id);
+          productElement.innerHTML = `
+            <h2>${product.name}</h2>
+            <p class="category">Category: ${product.category}</p>
+            <p>Subcategory: ${product.subcategory}</p>
+            <p>Price: ${product.price}</p>
+            <img src="${product.photo}" alt="photo${product.id}">
+          `;
+
+          // Додаємо HTML-блок до контейнера
+          productsContainer.appendChild(productElement);
+        }
+      });
+    })
+    .catch(error => console.error(error));
+
+});
+
+
 function searchProductsByPrice() {
   const productsContainer = document.getElementById('products-list');
   const productCountElement = document.getElementById('product-count');
@@ -514,4 +683,4 @@ function searchProductsByPrice() {
     .catch(error => console.error(error));
 }
 const applyButton = document.getElementById('apply-filters-button');
-applyButton.addEventListener('click', searchProductsByPrice);
+//applyButton.addEventListener('click', searchProductsByPrice); */
