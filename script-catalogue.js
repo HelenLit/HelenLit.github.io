@@ -170,5 +170,90 @@ function createProductElement(product) {
   return productElement;
 }
 
+
+
+const lowHighCheckbox = document.getElementById('low-high');
+const highLowCheckbox = document.getElementById('high-low');
+
+lowHighCheckbox.addEventListener('change', function () {
+  if (lowHighCheckbox.checked) {
+    highLowCheckbox.checked = false;
+  }
+});
+
+highLowCheckbox.addEventListener('change', function () {
+  if (highLowCheckbox.checked) {
+    lowHighCheckbox.checked = false;
+  }
+});
+
+
+/* -------------------------------------------------------------------------------------------------- */
+
+
+const aToZCheckbox = document.getElementById('a-z');
+const zToACheckbox = document.getElementById('z-a');
+
+aToZCheckbox.addEventListener('change', function () {
+  if (aToZCheckbox.checked) {
+    zToACheckbox.checked = false;
+  }
+});
+
+zToACheckbox.addEventListener('change', function () {
+  if (zToACheckbox.checked) {
+    aToZCheckbox.checked = false;
+  }
+});
+
+
+
+// Додаємо обробники подій кліку на чекбокси
+aToZCheckbox.addEventListener('click', sortProductsByNameAtoZ);
+zToACheckbox.addEventListener('click', sortProductsByNameZtoA);
+
+// Функція сортування продуктів за назвою (від "A" до "Z")
+function sortProductsByNameAtoZ() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      productsContainer.innerHTML = '';
+      const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
+
+      sortedProducts.forEach(product => {
+        const productElement = createProductElement(product);
+        productsContainer.appendChild(productElement);
+      });
+
+      productCountElement.textContent = sortedProducts.length + " Products";
+    })
+    .catch(error => console.error(error));
+}
+
+// Функція сортування продуктів за назвою (від "Z" до "A")
+function sortProductsByNameZtoA() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      productsContainer.innerHTML = '';
+      const sortedProducts = products.sort((a, b) => b.name.localeCompare(a.name));
+
+      sortedProducts.forEach(product => {
+        const productElement = createProductElement(product);
+        productsContainer.appendChild(productElement);
+      });
+
+      productCountElement.textContent = sortedProducts.length + " Products";
+    })
+    .catch(error => console.error(error));
+}
+
+
 /* -------------------------------------------------------------------------------------------------- */
 
