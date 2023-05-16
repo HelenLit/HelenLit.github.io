@@ -183,27 +183,28 @@
         <div class="card">
           <h4 style="text-align: start">Price</h4>
           <div class="range-slider">
-            <input type="range" class="min-price" value="100" min="10" max="500" step="10" />
-            <input type="range" class="max-price" value="250" min="10" max="500" step="10" />
+            <input type="range" class="min-price" value="1000" min="99" max="85000" step="450" id="min-price"/>
+            <input type="range" class="max-price" value="90000" min="85000" max="170000" step="450" id="max-price"/>
           </div>
 
           <div class="price-content">
             <div class="minmax">
-              <label for="Min">Min</label>
-              <input type="text" id="Min" name="MinPrice" placeholder="50$" />
+              <label for="Min" id="min-val">Min</label>
+              <input type="text" id="Min" name="MinPrice" placeholder="1000$" />
             </div>
 
             <div class="minmax">
-              <label for="Max">Max</label>
-              <input type="text" id="Max" name="MaxPrice" placeholder="20000$" />
+              <label for="Max" id="max-val">Max</label>
+              <input type="text" id="Max" name="MaxPrice" placeholder="90000$" />
             </div>
           </div>
 
           <div class="buttons">
-            <button class="apply">Apply</button>
-            <button class="reset">Reset</button>
+            <button class="apply" id="apply-filters-button">Apply</button>
+            <button class="reset" id="reset-filters-button">Reset</button>
           </div>
         </div>
+
       </section>
 
       <ul class="products" id="products-list">

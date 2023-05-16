@@ -7,6 +7,9 @@ hideEmailBtn.addEventListener('click', function () {
 });
 
 
+/* -------------------------------------------------------------------------------------------------- */
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
 const subcategory = urlParams.get('subcategory');
@@ -316,3 +319,88 @@ const selectElements = document.querySelectorAll('select[name="select"]');
 selectElements.forEach(select => {
   select.addEventListener('change', filterProducts);
 });
+
+
+/* -------------------------------------------------------------------------------------------------- */
+
+
+// Отримуємо посилання на елементи DOM
+const minPriceSlider = document.querySelector('.min-price');
+const maxPriceSlider = document.querySelector('.max-price');
+const minPriceInput = document.getElementById('Min');
+const maxPriceInput = document.getElementById('Max');
+
+// Додаємо обробники подій input до повзунків
+minPriceSlider.addEventListener('input', updateMinPriceInput);
+maxPriceSlider.addEventListener('input', updateMaxPriceInput);
+
+// Функція оновлення значення текстового поля мінімальної ціни при зміні повзунка
+function updateMinPriceInput() {
+  minPriceInput.value = minPriceSlider.value + "$";
+}
+
+// Функція оновлення значення текстового поля максимальної ціни при зміні повзунка
+function updateMaxPriceInput() {
+  maxPriceInput.value = maxPriceSlider.value + "$";
+}
+
+// Додаємо обробники подій input до текстових полів
+minPriceInput.addEventListener('input', updateMinPriceSlider);
+maxPriceInput.addEventListener('input', updateMaxPriceSlider);
+
+// Функція оновлення значення повзунка мінімальної ціни при зміні текстового поля
+function updateMinPriceSlider() {
+  const minPrice = parseInt(minPriceInput.value);
+  if (!isNaN(minPrice)) {
+    minPriceSlider.value = minPrice;
+  }
+}
+
+// Функція оновлення значення повзунка максимальної ціни при зміні текстового поля
+function updateMaxPriceSlider() {
+  const maxPrice = parseInt(maxPriceInput.value);
+  if (!isNaN(maxPrice)) {
+    maxPriceSlider.value = maxPrice;
+  }
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+
+
+function searchProductsByPrice() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+  const minPrice = parseInt(document.getElementById('Min').value);
+  const maxPrice = parseInt(document.getElementById('Max').value);
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      productsContainer.innerHTML = '';
+      const filteredProducts = products.filter(product => {
+        const productPrice = parseInt(product.price);
+        return productPrice >= minPrice && productPrice <= maxPrice;
+      });
+
+      filteredProducts.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.setAttribute('data-id', product.id);
+        productElement.innerHTML = `
+        <img class="itemi" src="${product.photo}" alt="product" />
+        <h3>${product.name}</h3>
+        <div class="category">${product.subcategory} ${product.category}</div>
+        <div class="price">${product.price}</div>
+        <button class="buy_now">Buy now</button>
+        `;
+
+        productsContainer.appendChild(productElement);
+      });
+
+      productCountElement.textContent = filteredProducts.length + " Products";
+    })
+    .catch(error => console.error(error));
+}
+const applyButton = document.getElementById('apply-filters-button');
+applyButton.addEventListener('click', searchProductsByPrice);
