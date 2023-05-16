@@ -115,7 +115,7 @@ const priceHighLowCheckbox = document.getElementById('high-low');
 priceLowHighCheckbox.addEventListener('click', sortProductsByPriceLowHigh);
 priceHighLowCheckbox.addEventListener('click', sortProductsByPriceHighLow);
 
-// Функція сортування продуктів за ціною (від найнижчої до найвищої)
+/* // Функція сортування продуктів за ціною (від найнижчої до найвищої)
 function sortProductsByPriceLowHigh() {
   const productsContainer = document.getElementById('products-list');
   const productCountElement = document.getElementById('product-count');
@@ -155,7 +155,61 @@ function sortProductsByPriceHighLow() {
       productCountElement.textContent = sortedProducts.length + " Products";
     })
     .catch(error => console.error(error));
+}*/
+
+
+function sortProductsByPriceLowHigh() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  const productElements = Array.from(productsContainer.getElementsByClassName('product'));
+  const products = productElements.map(productElement => getProductData(productElement));
+
+  const sortedProducts = products.sort((a, b) => a.price - b.price);
+
+  productsContainer.innerHTML = '';
+  sortedProducts.forEach(product => {
+    const productElement = createProductElement(product);
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = sortedProducts.length + " Products";
 }
+
+function sortProductsByPriceHighLow() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  const productElements = Array.from(productsContainer.getElementsByClassName('product'));
+  const products = productElements.map(productElement => getProductData(productElement));
+
+  const sortedProducts = products.sort((a, b) => b.price - a.price);
+
+  productsContainer.innerHTML = '';
+  sortedProducts.forEach(product => {
+    const productElement = createProductElement(product);
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = sortedProducts.length + " Products";
+}
+
+function getProductData(productElement) {
+  const productId = productElement.getAttribute('data-id');
+  const productName = productElement.querySelector('h3').textContent;
+  const productCategory = productElement.querySelector('.category').textContent;
+  const productPrice = parseFloat(productElement.querySelector('.price').textContent);
+  const productPhoto = productElement.querySelector('.itemi').getAttribute('src');
+
+  return {
+    id: productId,
+    name: productName,
+    category: productCategory,
+    price: productPrice,
+    photo: productPhoto
+  };
+}
+
 
 // Функція створення елемента продукту
 function createProductElement(product) {
@@ -165,7 +219,7 @@ function createProductElement(product) {
   productElement.innerHTML = `
     <img class="itemi" src="${product.photo}" alt="product" />
     <h3>${product.name}</h3>
-    <div class="category">${product.subcategory} ${product.category}</div>
+    <div class="category">${product.category}</div>
     <div class="price">${product.price}</div>
     <button class="buy_now">Buy now</button>
   `;
@@ -215,7 +269,7 @@ zToACheckbox.addEventListener('change', function () {
 aToZCheckbox.addEventListener('click', sortProductsByNameAtoZ);
 zToACheckbox.addEventListener('click', sortProductsByNameZtoA);
 
-// Функція сортування продуктів за назвою (від "A" до "Z")
+/*// Функція сортування продуктів за назвою (від "A" до "Z")
 function sortProductsByNameAtoZ() {
   const productsContainer = document.getElementById('products-list');
   const productCountElement = document.getElementById('product-count');
@@ -255,7 +309,64 @@ function sortProductsByNameZtoA() {
       productCountElement.textContent = sortedProducts.length + " Products";
     })
     .catch(error => console.error(error));
+}*/
+
+function sortProductsByNameAtoZ() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  const productElements = Array.from(productsContainer.getElementsByClassName('product'));
+  const products = productElements.map(productElement => getProductData(productElement));
+
+  const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
+
+  productsContainer.innerHTML = '';
+  sortedProducts.forEach(product => {
+    const productElement = createProductElement(product);
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = sortedProducts.length + " Products";
 }
+
+function sortProductsByNameZtoA() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  const productElements = Array.from(productsContainer.getElementsByClassName('product'));
+  const products = productElements.map(productElement => getProductData(productElement));
+
+  const sortedProducts = products.sort((a, b) => b.name.localeCompare(a.name));
+
+  productsContainer.innerHTML = '';
+  sortedProducts.forEach(product => {
+    const productElement = createProductElement(product);
+    productsContainer.appendChild(productElement);
+  });
+
+  productCountElement.textContent = sortedProducts.length + " Products";
+}
+
+
+function getProductData(productElement) {
+  const productId = productElement.getAttribute('data-id');
+  const productName = productElement.querySelector('h3').textContent;
+  const productCategory = productElement.querySelector('.category').textContent;
+  const productSubcategory = productCategory.split(' ')[0];
+  const productPrice = productElement.querySelector('.price').textContent;
+  const productPhoto = productElement.querySelector('.itemi').getAttribute('src');
+
+  return {
+    id: productId,
+    name: productName,
+    category: productCategory,
+    subcategory: productSubcategory,
+    price: productPrice,
+    photo: productPhoto
+  };
+}
+
+
 
 
 /* -------------------------------------------------------------------------------------------------- */
