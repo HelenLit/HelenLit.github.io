@@ -1,240 +1,213 @@
 <!DOCTYPE html>
 <html lang="ua">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Магазин інструментів</title>
-    <link rel="stylesheet" type="text/css" href="./style_catalogue.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <img src="logo-main.png" , style="position: absolute; width: 15%" />
-      <nav>
-        <ul class="navigation">
-          <li><a href="./main.html" target="_blank">CATALOGUE</a></li>
-          <li><a href="#" target="_blank">SERVICES</a></li>
-          <li><a href="#" target="_blank">ABOUT US</a></li>
-          <li><a href="./logIn.html" target="_blank">LOG IN</a></li>
-          <li style="background-color: black; border-radius: 10px">
-            <a href="./logIn.html" target="_blank" style="color: white">SIGN UP</a>
+<head>
+  <meta charset="UTF-8" />
+  <title>Магазин інструментів</title>
+  <link rel="stylesheet" type="text/css" href="./style_catalogue.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <img src="logo-main.png" , style="position: absolute; width: 15%" />
+    <nav>
+      <ul class="navigation">
+        <li><a href="./main.html" target="_blank">CATALOGUE</a></li>
+        <li><a href="#" target="_blank">SERVICES</a></li>
+        <li><a href="#" target="_blank">ABOUT US</a></li>
+        <li><a href="./logIn.html" target="_blank">LOG IN</a></li>
+        <li style="background-color: black; border-radius: 10px">
+          <a href="./logIn.html" target="_blank" style="color: white">SIGN UP</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="search">
+      <input type="text" class="searchTerm" id="search-term" placeholder="Search Product, Category ..." />
+      <button type="submit" class="searchButton" id="search-name-button">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+    <div class="Rectangle87">
+      <div class="catalogues">
+        <select name="select" style="width: 8.5em">
+          <option value="" , disabled selected>GUITARS</option>
+          <option value="ClassicalG">Classical Guitars</option>
+          <option value="AcousticG">Acoustic Guitars</option>
+          <option value="Ukuleles">Ukuleles</option>
+        </select>
+
+        <select name="select" style="width: 7em">
+          <option value="" , disabled selected>DRUMS</option>
+          <option value="HandD">Hand drums</option>
+          <option value="AcousticD">Acoustic Drum Sets</option>
+          <option value="Cymbals">Cymbals</option>
+        </select>
+
+        <select name="select" style="width: 10em">
+          <option value="" , disabled selected>KEYBOARDS</option>
+          <option value="Pianos">Pianos</option>
+          <option value="Synthesizers">Synthesizers</option>
+          <option value="Harpsichords">Harpsichords</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="text1" style="margin-top: 8%">
+      <p>CATALOGUE</p>
+      <div class="number_of_products">
+        <p id="product-count">117 Products</p>
+      </div>
+    </div>
+
+
+    <section class="choise">
+      <ul class="list_">
+        <li class="list_item">
+          <input class="checkbox-round" type="checkbox" id="check1" />
+          <label for="check1"><span></span>Price (Low > High)</label>
+        </li>
+
+        <li class="list_item">
+          <input class="checkbox-round" type="checkbox" id="check1" />
+          <label for="check1"><span></span> Price (High > Low)</label>
+        </li>
+      </ul>
+
+      <ul class="list_">
+        <li class="list_item">
+          <input class="checkbox-round" type="checkbox" id="check1" />
+          <label for="check1"><span></span> Name (A - Z)</label>
+        </li>
+        <li class="list_item">
+          <input class="checkbox-round" type="checkbox" id="check1" />
+          <label for="check1"><span></span> Name (Z - A)</label>
+        </li>
+      </ul>
+    </section>
+
+    <div class="text2">
+      <p>Categories</p>
+    </div>
+
+    <div class="conteiner">
+      <section class="content">
+        <ul class="list">
+          <li class="list__item">
+            <label class="label--checkboxM">
+              <input type="checkbox" class="checkbox" checked />
+              &emsp;&emsp;&emsp;&emsp;&nbsp;Guitars
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &ensp;&emsp;&ensp;Classical Guitars
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&ensp;&ensp;&nbsp;Acoustic Guitars
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Ukuleles
+            </label>
           </li>
         </ul>
-      </nav>
 
-      <div class="search">
-        <input
-          type="text"
-          class="searchTerm"
-          placeholder="Search Products, categories ..."
-        />
-        <button type="submit" class="searchButton" onclick="searchProducts();">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-
-      <div class="Rectangle87">
-        <div class="catalogues">
-          <select name="select" style="width: 8.5em">
-            <option value="" , disabled selected>GUITARS</option>
-            <option value="ClassicalG">Classical Guitars</option>
-            <option value="AcousticG">Acoustic Guitars</option>
-            <option value="Ukuleles">Ukuleles</option>
-          </select>
-
-          <select name="select" style="width: 7em">
-            <option value="" , disabled selected>DRUMS</option>
-            <option value="HandD">Hand drums</option>
-            <option value="AcousticD">Acoustic Drum Sets</option>
-            <option value="Cymbals">Cymbals</option>
-          </select>
-
-          <select name="select" style="width: 10em">
-            <option value="" , disabled selected>KEYBOARDS</option>
-            <option value="Pianos">Pianos</option>
-            <option value="Synthesizers">Synthesizers</option>
-            <option value="Harpsichords">Harpsichords</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="text1" style="margin-top: 8%">
-        <p>CATALOGUE</p>
-        <div class="number_of_products">
-          <p id="product-count">117 Products</p>
-        </div>
-      </div>
-     
-      
-      <section class="choise">
-        <ul class="list_">
-          <li class="list_item">
-            <input class="checkbox-round" type="checkbox" id="check1" />
-            <label for="check1"><span></span>Price (Low > High)</label>
+        <ul class="list">
+          <li class="list__item">
+            <label class="label--checkboxM">
+              <input type="checkbox" class="checkbox" checked />
+              &emsp;&emsp;&emsp;&emsp;&ensp;Drums
+            </label>
           </li>
-
-          <li class="list_item">
-            <input class="checkbox-round" type="checkbox" id="check1" />
-            <label for="check1"><span></span> Price (High > Low)</label>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&ensp; Hand drums
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &nbsp;&nbsp;Acoustic Drum Sets
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&emsp;&emsp; Cymbals
+            </label>
           </li>
         </ul>
 
-        <ul class="list_">
-          <li class="list_item">
-            <input class="checkbox-round" type="checkbox" id="check1" />
-            <label for="check1"><span></span> Name (A - Z)</label>
+        <ul class="list">
+          <li class="list__item">
+            <label class="label--checkboxM">
+              <input type="checkbox" class="checkbox" checked />
+              &emsp;&emsp;&ensp; Keyboards
+            </label>
           </li>
-          <li class="list_item">
-            <input class="checkbox-round" type="checkbox" id="check1" />
-            <label for="check1"><span></span> Name (Z - A)</label>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Pianos
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&ensp;&nbsp;Synthesizers
+            </label>
+          </li>
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" />
+              &emsp;&emsp;&emsp;&ensp;Harpsichords
+            </label>
           </li>
         </ul>
-      </section>
 
-      <div class="text2">
-        <p>Categories</p>
-      </div>
+        <div class="card">
+          <h4 style="text-align: start">Price</h4>
+          <div class="range-slider">
+            <input type="range" class="min-price" value="100" min="10" max="500" step="10" />
+            <input type="range" class="max-price" value="250" min="10" max="500" step="10" />
+          </div>
 
-      <div class="conteiner">
-        <section class="content">
-          <ul class="list">
-            <li class="list__item">
-              <label class="label--checkboxM">
-                <input type="checkbox" class="checkbox" checked />
-                &emsp;&emsp;&emsp;&emsp;&nbsp;Guitars
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &ensp;&emsp;&ensp;Classical Guitars
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&ensp;&ensp;&nbsp;Acoustic Guitars
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Ukuleles
-              </label>
-            </li>
-          </ul>
-
-          <ul class="list">
-            <li class="list__item">
-              <label class="label--checkboxM">
-                <input type="checkbox" class="checkbox" checked />
-                &emsp;&emsp;&emsp;&emsp;&ensp;Drums
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&ensp; Hand drums
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &nbsp;&nbsp;Acoustic Drum Sets
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&emsp;&emsp; Cymbals
-              </label>
-            </li>
-          </ul>
-
-          <ul class="list">
-            <li class="list__item">
-              <label class="label--checkboxM">
-                <input type="checkbox" class="checkbox" checked />
-                &emsp;&emsp;&ensp; Keyboards
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Pianos
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&ensp;&nbsp;Synthesizers
-              </label>
-            </li>
-            <li class="list__item">
-              <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
-                &emsp;&emsp;&emsp;&ensp;Harpsichords
-              </label>
-            </li>
-          </ul>
-
-          <div class="card">
-            <h4 style="text-align: start">Price</h4>
-            <div class="range-slider">
-              <input
-                type="range"
-                class="min-price"
-                value="100"
-                min="10"
-                max="500"
-                step="10"
-              />
-              <input
-                type="range"
-                class="max-price"
-                value="250"
-                min="10"
-                max="500"
-                step="10"
-              />
+          <div class="price-content">
+            <div class="minmax">
+              <label for="Min">Min</label>
+              <input type="text" id="Min" name="MinPrice" placeholder="50$" />
             </div>
 
-            <div class="price-content">
-              <div class="minmax">
-                <label for="Min"
-                  >Min</label
-                >
-                <input type="text" id="Min" name="MinPrice" placeholder="50$" />
-              </div>
-
-              <div class="minmax">
-                <label for="Max"
-                  >Max</label
-                >
-                <input
-                  type="text"
-                  id="Max"
-                  name="MaxPrice"
-                  placeholder="20000$"
-                />
-              </div>
-            </div>
-
-            <div class="buttons">
-              <button class="apply">Apply</button>
-              <button class="reset">Reset</button>
+            <div class="minmax">
+              <label for="Max">Max</label>
+              <input type="text" id="Max" name="MaxPrice" placeholder="20000$" />
             </div>
           </div>
-        </section>
 
-        <ul class="products" id="products-list">
-          
-          <!--
+          <div class="buttons">
+            <button class="apply">Apply</button>
+            <button class="reset">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <ul class="products" id="products-list">
+
+        <!--
           <li class="product">
  
               <img class="itemi" src="products/Alfabeto.png" alt="product" />
@@ -271,104 +244,79 @@
 
           </li>
           -->
-        </ul>
+      </ul>
 
-      </div>
-
-      <div class="footer-clean">
-        <footer>
-          <div class="join">
-            <div class="block1">
-              <div class="textJ1">
-                <p>JOIN MUSICAL COMMUNITY TO GET MONTHLY PROMO</p>
-              </div>
-              <div class="textJ2">
-                <p>Type your email down below and be young wild generation</p>
-              </div>
-            </div>
-            <div class="Email">
-              <input
-                type="email"
-                name="email"
-                placeholder="Add your email here"
-              />
-              <input type="submit" value="SEND" />
-            </div>
-          </div>
-          <div class="container">
-            <div class="col">
-              <h2 class="mainFooterTitle">Instruments</h2>
-              <h5 class="mainFooterTitle2">
-                Your one-stop shop for all things music.
-              </h5>
-              <div class="rounded-social-buttons">
-                <a
-                  class="social-button facebook"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a
-                  class="social-button twitter"
-                  href="https://www.twitter.com/"
-                  target="_blank"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a
-                  class="social-button linkedin"
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-                <a
-                  class="social-button youtube"
-                  href="https://www.youtube.com/"
-                  target="_blank"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a
-                  class="social-button instagram"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col">
-              <h2>Services</h2>
-              <ul>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Development</a></li>
-                <li><a href="#">Hosting</a></li>
-              </ul>
-            </div>
-            <div class="col">
-              <h2>About</h2>
-              <ul>
-                <li><a href="#">Company</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Legacy</a></li>
-              </ul>
-            </div>
-            <div class="col">
-              <h2>Careers</h2>
-              <ul>
-                <li><a href="#">Job openings</a></li>
-                <li><a href="#">Employee success</a></li>
-                <li><a href="#">Benefits</a></li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </div>
     </div>
 
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
-      integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
-      crossorigin="anonymous"
-    ></script>
-    <script src="script_catalogue.js"></script>
-  </body>
+    <div class="footer-clean">
+      <footer>
+        <div class="join">
+          <div class="block1">
+            <div class="textJ1">
+              <p>JOIN MUSICAL COMMUNITY TO GET MONTHLY PROMO</p>
+            </div>
+            <div class="textJ2">
+              <p>Type your email down below and be young wild generation</p>
+            </div>
+          </div>
+          <div class="Email">
+            <input type="email" name="email" placeholder="Add your email here" />
+            <input type="submit" value="SEND" />
+          </div>
+        </div>
+        <div class="container">
+          <div class="col">
+            <h2 class="mainFooterTitle">Instruments</h2>
+            <h5 class="mainFooterTitle2">
+              Your one-stop shop for all things music.
+            </h5>
+            <div class="rounded-social-buttons">
+              <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i
+                  class="fab fa-twitter"></i></a>
+              <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i
+                  class="fab fa-linkedin"></i></a>
+              <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i
+                  class="fab fa-youtube"></i></a>
+              <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i
+                  class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col">
+            <h2>Services</h2>
+            <ul>
+              <li><a href="#">Web design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Hosting</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h2>About</h2>
+            <ul>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Legacy</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h2>Careers</h2>
+            <ul>
+              <li><a href="#">Job openings</a></li>
+              <li><a href="#">Employee success</a></li>
+              <li><a href="#">Benefits</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous">
+    </script>
+
+  <script src="script-catalogue.js"></script>
+</body>
+
 </html>

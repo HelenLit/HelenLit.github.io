@@ -1,4 +1,4 @@
-                  /* HIDE EMAIL FORM IN PAGE*/
+/* HIDE EMAIL FORM IN PAGE*/
 
 const emailField = document.querySelector('.Email input[name="email"]');
 const hideEmailBtn = document.querySelector('.Email input[type="submit"]');
@@ -12,7 +12,7 @@ hideEmailBtn.addEventListener('click', function () {
 
 
 
-          /* REDIRECT TO CATALOGUE PAGE WITH NO FILTERS */
+/* REDIRECT TO CATALOGUE PAGE WITH NO FILTERS */
 
 var shopNowButton = document.getElementById('shop-now');
 
@@ -24,7 +24,7 @@ shopNowButton.addEventListener('click', function () {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH GUITAR CATEGORY FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH GUITAR CATEGORY FILTER */
 
 var exploreNowGuitars = document.getElementById('explore-now-guitars');
 
@@ -36,11 +36,11 @@ exploreNowGuitars.addEventListener('click', function () {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH DRUMS CATEGORY FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH DRUMS CATEGORY FILTER */
 
 var exploreNowDrums = document.getElementById('explore-now-drums');
 
-exploreNowDrums.addEventListener('click', function() {
+exploreNowDrums.addEventListener('click', function () {
   redirectToNewPage('drums');
 });
 
@@ -48,11 +48,11 @@ exploreNowDrums.addEventListener('click', function() {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH KEYBOARDS CATEGORY FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH KEYBOARDS CATEGORY FILTER */
 
 var exploreNowKeyboards = document.getElementById('explore-now-keyboards');
 
-exploreNowKeyboards.addEventListener('click', function() {
+exploreNowKeyboards.addEventListener('click', function () {
   redirectToNewPage('keyboards');
 });
 
@@ -60,11 +60,11 @@ exploreNowKeyboards.addEventListener('click', function() {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH UKULELE SUBCATEGORY FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH UKULELE SUBCATEGORY FILTER */
 
 var exploreNowUkuleles = document.getElementById('explore-now-ukuleles');
 
-exploreNowUkuleles.addEventListener('click', function() {
+exploreNowUkuleles.addEventListener('click', function () {
   redirectToNewPageSubCategory('ukulele');
 });
 
@@ -72,11 +72,11 @@ exploreNowUkuleles.addEventListener('click', function() {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH HAND SUBCATEGORY FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH HAND SUBCATEGORY FILTER */
 
 var exploreNowHandDrums = document.getElementById('explore-now-hand-drums');
 
-exploreNowHandDrums.addEventListener('click', function() {
+exploreNowHandDrums.addEventListener('click', function () {
   redirectToNewPageSubCategory('hand');
 });
 
@@ -102,11 +102,11 @@ function redirectToNewPageSubCategory(subcategory) {
 
 
 
-    /* REDIRECT TO CATALOGUE PAGE WITH PRICE FILTER */
+/* REDIRECT TO CATALOGUE PAGE WITH PRICE FILTER */
 
 const shopNowButtonPrice = document.getElementById('shop-now-price');
 
-shopNowButtonPrice.addEventListener('click', function() {
+shopNowButtonPrice.addEventListener('click', function () {
   redirectToNewPageWithRange(100, 10000);
 });
 
