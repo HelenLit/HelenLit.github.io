@@ -101,3 +101,74 @@ function searchProducts() {
     })
     .catch(error => console.error(error));
 }
+
+/* -------------------------------------------------------------------------------------------------- */
+
+// Отримуємо посилання на елементи DOM
+const priceLowHighCheckbox = document.getElementById('low-high');
+const priceHighLowCheckbox = document.getElementById('high-low');
+
+// Додаємо обробники подій кліку на чекбокси
+priceLowHighCheckbox.addEventListener('click', sortProductsByPriceLowHigh);
+priceHighLowCheckbox.addEventListener('click', sortProductsByPriceHighLow);
+
+// Функція сортування продуктів за ціною (від найнижчої до найвищої)
+function sortProductsByPriceLowHigh() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      productsContainer.innerHTML = '';
+      const sortedProducts = products.sort((a, b) => a.price - b.price);
+
+      sortedProducts.forEach(product => {
+        const productElement = createProductElement(product);
+        productsContainer.appendChild(productElement);
+      });
+
+      productCountElement.textContent = sortedProducts.length + " Products";
+    })
+    .catch(error => console.error(error));
+}
+
+// Функція сортування продуктів за ціною (від найвищої до найнижчої)
+function sortProductsByPriceHighLow() {
+  const productsContainer = document.getElementById('products-list');
+  const productCountElement = document.getElementById('product-count');
+
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      productsContainer.innerHTML = '';
+      const sortedProducts = products.sort((a, b) => b.price - a.price);
+
+      sortedProducts.forEach(product => {
+        const productElement = createProductElement(product);
+        productsContainer.appendChild(productElement);
+      });
+
+      productCountElement.textContent = sortedProducts.length + " Products";
+    })
+    .catch(error => console.error(error));
+}
+
+// Функція створення елемента продукту
+function createProductElement(product) {
+  const productElement = document.createElement('li');
+  productElement.classList.add('product');
+  productElement.setAttribute('data-id', product.id);
+  productElement.innerHTML = `
+    <img class="itemi" src="${product.photo}" alt="product" />
+    <h3>${product.name}</h3>
+    <div class="category">${product.subcategory} ${product.category}</div>
+    <div class="price">${product.price}</div>
+    <button class="buy_now">Buy now</button>
+  `;
+
+  return productElement;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+
