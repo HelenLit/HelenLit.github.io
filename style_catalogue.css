@@ -335,7 +335,7 @@ option {
     min-width: 0;
     max-width: 100%;
     flex-wrap: wrap;
-    height: 25vw;
+    height: 27vw;
     justify-content: start;
 
     flex-direction: column;
@@ -344,6 +344,7 @@ option {
     border: 1.5238px solid #ECD2A6;
     border-radius: 18px;
     padding: 1vw;
+    margin-bottom: 5vw;
 
 }
 
