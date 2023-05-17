@@ -69,6 +69,17 @@ fetch('products.json')
 
 // Отримуємо посилання на елементи DOM
 const searchButton = document.getElementById('search-name-button');
+const searchInput = document.querySelector('.searchTerm');
+
+searchInput.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault(); // Забороняємо стандартну дію Enter (наприклад, відправку форми)
+    searchProducts();
+  }
+});
+
+searchButton.addEventListener('click', searchProducts);
+
 
 // Додаємо обробник події кліку на кнопку пошуку
 searchButton.addEventListener('click', searchProducts);
@@ -99,7 +110,7 @@ function searchProducts() {
         productElement.classList.add('product');
         productElement.setAttribute('data-id', product.id);
         productElement.innerHTML = `
-            <img class="itemi" src="${product.photo}" alt="product" />
+            <img class="itemi" src="${product.photo}" alt="${product.id}" />
             <h3>${product.name}</h3>
             <div class="category">${product.subcategory} ${product.category}</div>
             <div class="price">${product.price}</div>
