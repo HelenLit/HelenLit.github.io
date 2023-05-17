@@ -27,6 +27,12 @@ html {
     font-family: var(--rt);
 }
 
+.slider-gap {
+    width: 10px;
+    height: 100%;
+    background-color: green;
+  }
+
 /* navigation */
 .navigation {
     padding: 0;
