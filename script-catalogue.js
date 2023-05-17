@@ -2,8 +2,17 @@ const emailField = document.querySelector('.Email input[name="email"]');
 const hideEmailBtn = document.querySelector('.Email input[type="submit"]');
 
 hideEmailBtn.addEventListener('click', function () {
-  emailField.style.display = 'none';
-  hideEmailBtn.style.display = 'none';
+  const email = emailField.value; // Отримуємо значення введеної електронної пошти
+  
+  // Перевіряємо, чи введено значення електронної пошти
+  if (email) {
+    emailField.style.display = 'none';
+    hideEmailBtn.style.display = 'none';
+    // Виводимо повідомлення з підтвердженням
+  alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
+  } else {
+    alert("Введіть пошту!");
+  }
 });
 
 
@@ -114,48 +123,6 @@ const priceHighLowCheckbox = document.getElementById('high-low');
 // Додаємо обробники подій кліку на чекбокси
 priceLowHighCheckbox.addEventListener('click', sortProductsByPriceLowHigh);
 priceHighLowCheckbox.addEventListener('click', sortProductsByPriceHighLow);
-
-/* // Функція сортування продуктів за ціною (від найнижчої до найвищої)
-function sortProductsByPriceLowHigh() {
-  const productsContainer = document.getElementById('products-list');
-  const productCountElement = document.getElementById('product-count');
-
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      productsContainer.innerHTML = '';
-      const sortedProducts = products.sort((a, b) => a.price - b.price);
-
-      sortedProducts.forEach(product => {
-        const productElement = createProductElement(product);
-        productsContainer.appendChild(productElement);
-      });
-
-      productCountElement.textContent = sortedProducts.length + " Products";
-    })
-    .catch(error => console.error(error));
-}
-
-// Функція сортування продуктів за ціною (від найвищої до найнижчої)
-function sortProductsByPriceHighLow() {
-  const productsContainer = document.getElementById('products-list');
-  const productCountElement = document.getElementById('product-count');
-
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      productsContainer.innerHTML = '';
-      const sortedProducts = products.sort((a, b) => b.price - a.price);
-
-      sortedProducts.forEach(product => {
-        const productElement = createProductElement(product);
-        productsContainer.appendChild(productElement);
-      });
-
-      productCountElement.textContent = sortedProducts.length + " Products";
-    })
-    .catch(error => console.error(error));
-}*/
 
 
 function sortProductsByPriceLowHigh() {
@@ -269,47 +236,6 @@ zToACheckbox.addEventListener('change', function () {
 aToZCheckbox.addEventListener('click', sortProductsByNameAtoZ);
 zToACheckbox.addEventListener('click', sortProductsByNameZtoA);
 
-/*// Функція сортування продуктів за назвою (від "A" до "Z")
-function sortProductsByNameAtoZ() {
-  const productsContainer = document.getElementById('products-list');
-  const productCountElement = document.getElementById('product-count');
-
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      productsContainer.innerHTML = '';
-      const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
-
-      sortedProducts.forEach(product => {
-        const productElement = createProductElement(product);
-        productsContainer.appendChild(productElement);
-      });
-
-      productCountElement.textContent = sortedProducts.length + " Products";
-    })
-    .catch(error => console.error(error));
-}
-
-// Функція сортування продуктів за назвою (від "Z" до "A")
-function sortProductsByNameZtoA() {
-  const productsContainer = document.getElementById('products-list');
-  const productCountElement = document.getElementById('product-count');
-
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      productsContainer.innerHTML = '';
-      const sortedProducts = products.sort((a, b) => b.name.localeCompare(a.name));
-
-      sortedProducts.forEach(product => {
-        const productElement = createProductElement(product);
-        productsContainer.appendChild(productElement);
-      });
-
-      productCountElement.textContent = sortedProducts.length + " Products";
-    })
-    .catch(error => console.error(error));
-}*/
 
 function sortProductsByNameAtoZ() {
   const productsContainer = document.getElementById('products-list');
@@ -589,98 +515,3 @@ resetButton.addEventListener('click', (event) => {
     })
     .catch(error => console.error(error));
 });
-
-
-/*
-
- чернетка
-
-const btn = document.getElementById("apply-filters-button");
-btn.addEventListener('click', (event) => {
-  let checkboxes = document.querySelectorAll('input[name="color"]:checked');
-  let values = [];
-  checkboxes.forEach((checkbox) => {
-    values.push(checkbox.value);
-  });
-
-  const productsContainer = document.getElementById('products-list');
-  productsContainer.innerHTML = ""; // Очистити контейнер перед виводом нових продуктів
-
-  // Завантажуємо JSON-файл зі списком продуктів
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      // Для кожного продукту в JSON-файлі перевіряємо, чи він відповідає обраним категоріям та підкатегоріям
-      products.forEach(product => {
-        let categoryMatch = false;
-        let subcategoryMatch = false;
-
-        // Перевіряємо збіг категорії продукту зі списком обраних категорій
-        if (values.includes(product.category)) {
-          categoryMatch = true;
-        }
-
-        // Перевіряємо збіг підкатегорії продукту зі списком обраних підкатегорій
-        if (values.includes(product.subcategory)) {
-          subcategoryMatch = true;
-        }
-
-        // Якщо знайдено збіг категорії або підкатегорії, виводимо продукт
-        if (categoryMatch || subcategoryMatch) {
-          const productElement = document.createElement('div');
-          productElement.classList.add('product');
-          productElement.setAttribute('data-id', product.id);
-          productElement.innerHTML = `
-            <h2>${product.name}</h2>
-            <p class="category">Category: ${product.category}</p>
-            <p>Subcategory: ${product.subcategory}</p>
-            <p>Price: ${product.price}</p>
-            <img src="${product.photo}" alt="photo${product.id}">
-          `;
-
-          // Додаємо HTML-блок до контейнера
-          productsContainer.appendChild(productElement);
-        }
-      });
-    })
-    .catch(error => console.error(error));
-
-});
-
-
-function searchProductsByPrice() {
-  const productsContainer = document.getElementById('products-list');
-  const productCountElement = document.getElementById('product-count');
-  const minPrice = parseInt(document.getElementById('Min').value);
-  const maxPrice = parseInt(document.getElementById('Max').value);
-
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      productsContainer.innerHTML = '';
-      const filteredProducts = products.filter(product => {
-        const productPrice = parseInt(product.price);
-        return productPrice >= minPrice && productPrice <= maxPrice;
-      });
-
-      filteredProducts.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('product');
-        productElement.setAttribute('data-id', product.id);
-        productElement.innerHTML = `
-        <img class="itemi" src="${product.photo}" alt="product" />
-        <h3>${product.name}</h3>
-        <div class="category">${product.subcategory} ${product.category}</div>
-        <div class="price">${product.price}</div>
-        <button class="buy_now">Buy now</button>
-        `;
-
-        productsContainer.appendChild(productElement);
-      });
-
-      productCountElement.textContent = filteredProducts.length + " Products";
-    })
-    .catch(error => console.error(error));
-}
-const applyButton = document.getElementById('apply-filters-button');
-//applyButton.addEventListener('click', searchProductsByPrice); */
