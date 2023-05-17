@@ -57,6 +57,7 @@ fetch('products.json')
 
       productsContainer.appendChild(productElement);
     });
+    addBuyNowEventListeners();
 
     productCountElement.textContent = filteredByPrice.length + " Products";
   })
@@ -120,6 +121,8 @@ function searchProducts() {
         productsContainer.appendChild(productElement);
       });
 
+      addBuyNowEventListeners();
+
       productCountElement.textContent = filteredProducts.length + " Products";
     })
     .catch(error => console.error(error));
@@ -151,6 +154,8 @@ function sortProductsByPriceLowHigh() {
     productsContainer.appendChild(productElement);
   });
 
+  addBuyNowEventListeners();
+
   productCountElement.textContent = sortedProducts.length + " Products";
 }
 
@@ -168,6 +173,8 @@ function sortProductsByPriceHighLow() {
     const productElement = createProductElement(product);
     productsContainer.appendChild(productElement);
   });
+
+  addBuyNowEventListeners();
 
   productCountElement.textContent = sortedProducts.length + " Products";
 }
@@ -262,6 +269,8 @@ function sortProductsByNameAtoZ() {
     productsContainer.appendChild(productElement);
   });
 
+  addBuyNowEventListeners();
+
   productCountElement.textContent = sortedProducts.length + " Products";
 }
 
@@ -279,6 +288,8 @@ function sortProductsByNameZtoA() {
     const productElement = createProductElement(product);
     productsContainer.appendChild(productElement);
   });
+
+  addBuyNowEventListeners();
 
   productCountElement.textContent = sortedProducts.length + " Products";
 }
@@ -357,6 +368,8 @@ function renderProducts(products) {
 
     productsContainer.appendChild(productElement);
   });
+
+  addBuyNowEventListeners();
 
   productCountElement.textContent = products.length + " Products";
 }
@@ -481,6 +494,8 @@ function searchProductsByPrice(products, productsContainer) {
     productsContainer.appendChild(productElement);
   });
 
+  addBuyNowEventListeners();
+
   productCountElement.textContent = filteredProducts.length + " Products";
 }
 
@@ -522,6 +537,29 @@ resetButton.addEventListener('click', (event) => {
         // Додаємо HTML-блок до контейнера
         productsContainer.appendChild(productElement);
       });
+
+      addBuyNowEventListeners();
     })
     .catch(error => console.error(error));
 });
+
+
+// Функція, яка додає обробник подій до кнопок "Buy Now"
+function addBuyNowEventListeners() {
+  const buyNowButtons = document.querySelectorAll('.buy_now');
+
+  buyNowButtons.forEach(button => {
+    const productId = button.parentElement.getAttribute('data-id');
+
+    button.addEventListener('click', function() {
+      //redirectToNewPage(productId);
+      alert(productId);
+    });
+  });
+}
+
+// Функція, яка перенаправляє на нову сторінку з використанням переданого ID
+function redirectToNewPage(productId) {
+  var url = './main.html?id=' + productId;
+  window.open(url, '_blank');
+}
