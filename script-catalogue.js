@@ -236,7 +236,6 @@ zToACheckbox.addEventListener('change', function () {
 aToZCheckbox.addEventListener('click', sortProductsByNameAtoZ);
 zToACheckbox.addEventListener('click', sortProductsByNameZtoA);
 
-
 function sortProductsByNameAtoZ() {
   const productsContainer = document.getElementById('products-list');
   const productCountElement = document.getElementById('product-count');
