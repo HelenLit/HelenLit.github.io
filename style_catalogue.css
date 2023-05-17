@@ -1,5 +1,5 @@
 ::root {
-    --rt: 'Poppins';
+    --rt: 'Poppins', sans-serif;
 }
 
 body {
@@ -11,6 +11,21 @@ body {
     ;
 }
 
+button {
+    font-family: var(--rt);
+}
+
+h3 {
+    font-family: var(--rt);
+}
+
+p {
+    font-family: var(--rt);
+}
+
+html {
+    font-family: var(--rt);
+}
 
 /* navigation */
 .navigation {
@@ -231,6 +246,7 @@ option {
     display: flex;
     flex-flow: row wrap;
     justify-content: end;
+    
 
 }
 
@@ -238,16 +254,15 @@ option {
 
     flex-flow: row wrap;
     display: flex;
-    background: #F9F9F9;
+    border: 1.5238px solid #6A983C;
+    background: #fffff6;
     /* C1/D */
-
-    border: 1.5238px solid #D1D1D1;
     border-radius: 18.2856px;
     height: 2em;
     width: 22em;
     border-radius: 10px;
-    text-align: end;
-    justify-content: center;
+    text-align: start;
+    justify-content: space-between;
     flex: none;
     order: 0;
     align-self: flex-start;
@@ -257,13 +272,20 @@ option {
 }
 
 .list_item {
+    
     font-weight: 400;
     font-size: 1em;
     margin-top: 0.3em;
     flex-direction: row;
     display: flex;
     flex-flow: wrap-reverse;
+    justify-content: space-between;
+    margin-right: 0.5vw;
+}
 
+.list__item {
+    margin: 0 0 .5rem 0;
+    padding: 0;
 }
 
 .label_checkbox {
@@ -285,7 +307,6 @@ option {
     font-size: 0.8vw;
     line-height: 104%;
     cursor: pointer;
-
 }
 
 .checkbox-round {
@@ -305,9 +326,6 @@ option {
 .checkbox-round:checked {
     background-color: rgb(18, 18, 18);
 }
-
-
-
 
 .products {
     width: 65%;
@@ -430,6 +448,8 @@ h3 {
 
 }
 
+
+
 .list {
     border: 1px solid #6A983C;
     background: #fffff6;
@@ -450,10 +470,6 @@ h3 {
     line-height: 104%;
 }
 
-.list__item {
-    margin: 0 0 .5rem 0;
-    padding: 0;
-}
 
 .label--checkbox,
 .label--checkboxM {
@@ -594,18 +610,19 @@ li {
     list-style: none;
 }
 
-
-
 .card {
     flex-shrink: 0;
     width: 18vw;
     padding: 1vw;
 }
 
+.card h4{
+    font-size: 1.6vw;
+}
 
-.minmax {
-    font-size: 1vw;
-    font-weight: 500;
+
+.minmax{
+    font-size: 1vw; font-weight: 500;
 }
 
 .price-content {
@@ -633,7 +650,13 @@ li {
 
 .card label,
 .price-content label {
-    font-size: 2vw;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.card label,
+.price-content label {
+    font-size: 1.4vw;
     font-weight: 600;
 }
 

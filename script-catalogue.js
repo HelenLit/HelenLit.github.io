@@ -216,18 +216,28 @@ function createProductElement(product) {
 
 const lowHighCheckbox = document.getElementById('low-high');
 const highLowCheckbox = document.getElementById('high-low');
+const listElement = document.querySelector('.list_');
 
 lowHighCheckbox.addEventListener('change', function () {
   if (lowHighCheckbox.checked) {
     highLowCheckbox.checked = false;
+    listElement.classList.add('low-high');
+    listElement.classList.remove('high-low');
+  } else {
+    listElement.classList.remove('low-high');
   }
 });
 
 highLowCheckbox.addEventListener('change', function () {
   if (highLowCheckbox.checked) {
     lowHighCheckbox.checked = false;
+    listElement.classList.add('high-low');
+    listElement.classList.remove('low-high');
+  } else {
+    listElement.classList.remove('high-low');
   }
 });
+
 
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -293,27 +303,6 @@ function sortProductsByNameZtoA() {
 
   productCountElement.textContent = sortedProducts.length + " Products";
 }
-
-
-function getProductData(productElement) {
-  const productId = productElement.getAttribute('data-id');
-  const productName = productElement.querySelector('h3').textContent;
-  const productCategory = productElement.querySelector('.category').textContent;
-  const productSubcategory = productCategory.split(' ')[0];
-  const productPrice = productElement.querySelector('.price').textContent;
-  const productPhoto = productElement.querySelector('.itemi').getAttribute('src');
-
-  return {
-    id: productId,
-    name: productName,
-    category: productCategory,
-    subcategory: productSubcategory,
-    price: productPrice,
-    photo: productPhoto
-  };
-}
-
-
 
 
 /* -------------------------------------------------------------------------------------------------- */

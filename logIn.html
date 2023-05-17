@@ -1,113 +1,76 @@
 <!DOCTYPE html>
 <html lang="ua">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Магазин інструментів</title>
-    <link rel="stylesheet" type="text/css" href="./form.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    
-    <link rel="shortcut icon" href="./shortcut-icon/Vector.svg" type="image/svg+xml">
-  </head>
 
-  <body>
-    
-    <a href="./about.html" target="_blank">
-      <img src="logo.png" alt="HTML tutorial" style="position: absolute; width: 15%">
-    </a>
-  
-      
-   
+<head>
+  <meta charset="UTF-8" />
+  <title>Магазин інструментів</title>
+  <link rel="stylesheet" type="text/css" href="./form.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
 
-    <div class="section">
-      <div class="container">
-        <div class="row full-height justify-content-center">
-          <div class="col-12 text-center align-self-center py-5">
-            <div class="section pb-5 pt-5 pt-sm-2 text-center">
-              <input
-                class="checkbox"
-                type="checkbox"
-                id="reg-log"
-                name="reg-log"
-              />
-              <label for="reg-log"></label>
-              <div class="card-3d-wrap mx-auto">
-                <div class="card-3d-wrapper">
-                  <div class="card-front">
-                    <div class="center-wrap">
-                      <div class="section text-center">
-                        <h4 class="mb-4 pb-3">Log In</h4>
-                        <div class="form-group">
-                          <input
-                            type="email"
-                            name="logemail"
-                            class="form-style"
-                            placeholder="Your Email"
-                            id="logemail"
-                            autocomplete="off"
-                            id="user-email-login"
-                          />
-                          <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input
-                            type="password"
-                            name="logpass"
-                            class="form-style"
-                            placeholder="Your Password"
-                            id="user-password-login"
-                            autocomplete="off"
-                          />
-                          <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <div id="submit-log-in">
-                        <a href="#" class="btn mt-4" >submit</a></div>
-                        <p class="mb-0 mt-4 text-center">
-                          <a href="#0" class="link">Forgot your password?</a>
-                        </p>
+  <link rel="shortcut icon" href="./shortcut-icon/Vector.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <a href="./about.html" target="_blank">
+    <img src="./logo.png" style="position: absolute; width: 15%" />
+  </a>
+
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+            <label for="reg-log"></label>
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <div class="card-front">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Log In</h4>
+                      <div class="form-group">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail"
+                          autocomplete="off" id="user-email-login" />
+                        <i class="input-icon uil uil-at"></i>
                       </div>
+                      <div class="form-group mt-2">
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password"
+                          id="user-password-login" autocomplete="off" />
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <div id="submit-log-in">
+                        <a href="#" class="btn mt-4">submit</a>
+                      </div>
+                      <p class="mb-0 mt-4 text-center">
+                        <a href="#0" class="link">Forgot your password?</a>
+                      </p>
                     </div>
                   </div>
-                  <div class="card-back">
-                    <div class="center-wrap">
-                      <div class="section text-center">
-                        <h4 class="mb-4 pb-3">Sign Up</h4>
-                        <div class="form-group">
-                          <input
-                            type="text"
-                            name="logname"
-                            class="form-style"
-                            placeholder="Your Full Name"
-                            id="user-name-registration"
-                            autocomplete="off"
-                          />
-                          <i class="input-icon uil uil-user"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input
-                            type="email"
-                            name="logemail"
-                            class="form-style"
-                            placeholder="Your Email"
-                            id="user-email-registration"
-                            autocomplete="off"
-                          />
-                          <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                          <input
-                            type="password"
-                            name="logpass"
-                            class="form-style"
-                            placeholder="Your Password"
-                            id="user-password-registration"
-                            autocomplete="off"
-                          />
-                          <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <a href="#" class="btn mt-4" id="submit-sign-up">submit</a>
+                </div>
+                <div class="card-back">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Sign Up</h4>
+                      <div class="form-group">
+                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name"
+                          id="user-name-registration" autocomplete="off" />
+                        <i class="input-icon uil uil-user"></i>
                       </div>
+                      <div class="form-group mt-2">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email"
+                          id="user-email-registration" autocomplete="off" />
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password"
+                          id="user-password-registration" autocomplete="off" />
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <a href="#" class="btn mt-4" id="submit-sign-up">submit</a>
                     </div>
                   </div>
                 </div>
@@ -117,10 +80,11 @@
         </div>
       </div>
     </div>
+  </div>
 
 
-    <div class="wrapper">
-    
+  <div class="wrapper">
+
     <div class="footer-clean">
       <footer>
         <div class="join">
@@ -133,11 +97,7 @@
             </div>
           </div>
           <div class="Email">
-            <input
-              type="email"
-              name="email"
-              placeholder="Add your email here"
-            />
+            <input type="email" name="email" placeholder="Add your email here" />
             <input type="submit" value="SEND" />
           </div>
         </div>
@@ -148,36 +108,16 @@
               Your one-stop shop for all things music.
             </h5>
             <div class="rounded-social-buttons">
-              <a
-                class="social-button facebook"
-                href="https://www.facebook.com/"
-                target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="social-button twitter"
-                href="https://www.twitter.com/"
-                target="_blank"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                class="social-button linkedin"
-                href="https://www.linkedin.com/"
-                target="_blank"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a
-                class="social-button youtube"
-                href="https://www.youtube.com/"
-                target="_blank"
-                ><i class="fab fa-youtube"></i
-              ></a>
-              <a
-                class="social-button instagram"
-                href="https://www.instagram.com/"
-                target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i
+                  class="fab fa-facebook-f"></i></a>
+              <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i
+                  class="fab fa-twitter"></i></a>
+              <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i
+                  class="fab fa-linkedin"></i></a>
+              <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i
+                  class="fab fa-youtube"></i></a>
+              <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i
+                  class="fab fa-instagram"></i></a>
             </div>
           </div>
           <div class="col">
@@ -209,15 +149,13 @@
     </div>
   </div>
 
-  <script
-  defer
-  src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
-  integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
-  crossorigin="anonymous"
-></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
 
-<script src="./script-login.js"></script>
+  <script src="./script-login.js"></script>
 
 
-  </body>
+</body>
+
 </html>
