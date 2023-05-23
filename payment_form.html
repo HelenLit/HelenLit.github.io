@@ -41,6 +41,7 @@
                 class="form-control"
                 value=""
                 placeholder="First name"
+                required
               />
             </div>
             <div class="element">
@@ -51,6 +52,7 @@
                 class="form-control"
                 value=""
                 placeholder="Last name"
+                required
               />
             </div>
           </div>
@@ -65,6 +67,7 @@
                   class="form-control"
                   value=""
                   placeholder="Email address"
+                  required
                 />
               </div>
             </div>
@@ -77,6 +80,7 @@
                   class="form-control"
                   value=""
                   placeholder="Phone number"
+                  required
                 />
               </div>
             </div>
@@ -92,6 +96,7 @@
                   class="form-control"
                   value=""
                   placeholder="Address"
+                  required
                 />
               </div>
             </div>
@@ -104,6 +109,7 @@
                   class="form-control"
                   value=""
                   placeholder="Town or City"
+                  required
                 />
               </div>
             </div>
@@ -119,6 +125,7 @@
                   class="form-control"
                   value=""
                   placeholder="State or Country"
+                  required
                 />
               </div>
             </div>
@@ -131,6 +138,7 @@
                   class="form-control"
                   value=""
                   placeholder="Postal Code or ZIP"
+                  required
                 />
               </div>
             </div>
@@ -240,6 +248,7 @@
                   name="car_number"
                   value=""
                   placeholder="Card number"
+                  required
                 />
               </div>
             </div>
@@ -254,6 +263,7 @@
                     name="car_code"
                     value=""
                     placeholder="Card holder"
+                    required
                   />
                 </div>
               </div>
@@ -268,6 +278,7 @@
                     name="car_code"
                     value=""
                     placeholder="Card CVV"
+                    required
                   />
                 </div>
               </div>
@@ -328,7 +339,7 @@
               </label>
             </div>
           </div>
-          
+
           <div class="panel-heading">Additional informations</div>
           <p class="description">
             Need something else? We will make it for you!
@@ -351,11 +362,12 @@
           <p class="description">
             We are getting to the end. Just few clicks and your order si ready!
           </p>
+
           <p class="step">Step 5 of 5</p>
           <div class="Confirmation-body">
             <div class="additional_option">
               <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
+                <input type="checkbox" class="checkbox" id="spam"/>
                 <p>
                   I agree with sending an Marketing and newsletter emails. No
                   spam, promissed!
@@ -364,12 +376,12 @@
             </div>
             <div class="additional_option">
               <label class="label--checkbox">
-                <input type="checkbox" class="checkbox" />
+                <input type="checkbox" class="checkbox" id="privacy"/>
                 <p>I agree with our terms and conditions and privacy policy.</p>
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-submit-fix">
+          <button type="submit" class="btn btn-primary btn-submit-fix" id="submit-order">
             Complete order
           </button>
         </div>

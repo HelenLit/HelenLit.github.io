@@ -9,9 +9,9 @@ hideEmailBtn.addEventListener('click', function () {
         emailField.style.display = 'none';
         hideEmailBtn.style.display = 'none';
         // Виводимо повідомлення з підтвердженням
-        alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
+        alert(`Your email (${email}) has been successfully recorded. Thank you!`);
     } else {
-        alert("Введіть пошту!");
+        alert("Please enter an email!");
     }
 });
 
@@ -76,14 +76,35 @@ dhlCheckbox.addEventListener('change', function () {
 const paypalCheckbox = document.getElementById('PayPal');
 const bitcoinCheckbox = document.getElementById('Bitcoin');
 
-paypalCheckbox.addEventListener('change', function() {
-  if (paypalCheckbox.checked) {
-    bitcoinCheckbox.checked = false;
+paypalCheckbox.addEventListener('change', function () {
+    if (paypalCheckbox.checked) {
+        bitcoinCheckbox.checked = false;
+    }
+});
+
+bitcoinCheckbox.addEventListener('change', function () {
+    if (bitcoinCheckbox.checked) {
+        paypalCheckbox.checked = false;
+    }
+});
+
+
+
+// ---------------------- SUBMIT BUTTON ----------------------
+
+
+
+const submitButton = document.getElementById('submit-order');
+const privacyCheckbox = document.getElementById('privacy');
+
+submitButton.addEventListener('click', function(event) {
+  if (!privacyCheckbox.checked) {
+    event.preventDefault(); // Зупиняє відправку форми
+    alert("You haven't agreed with our privacy policy! Check it and repeat submit.");
+  } else {
+    alert("Thank you for your order. Our manager will contact you soon!");
+    window.open("about.html", "_blank");  /// Відкриває сторінку "about.html"
+    window.close(); // Закриває поточну сторінку
   }
 });
 
-bitcoinCheckbox.addEventListener('change', function() {
-  if (bitcoinCheckbox.checked) {
-    paypalCheckbox.checked = false;
-  }
-});
