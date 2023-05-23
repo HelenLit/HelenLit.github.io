@@ -9,6 +9,17 @@ body{
 	background-color: #e6e7ec;
 	overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 img {
     mix-blend-mode: multiply;
@@ -68,11 +79,11 @@ h6 span{
   height: 30px;
   border-radius: 50%;
   color: #111111;
-  background-color: #151515;
+  background-color: #161616;
   font-family: 'unicons';
   content: '\eb4f';
   z-index: 20;
-  top: -10px;
+  top: -6px;
   left: -10px;
   line-height: 36px;
   text-align: center;
@@ -316,6 +327,7 @@ p {
 
 
 
+
 .join {
  
     position: relative;
@@ -371,7 +383,7 @@ p {
 .Email {
     position: absolute;
     top: 35vw;
-    left: 35%;
+    left: 36.3%;
     width: 30%;
 }
 
@@ -396,7 +408,7 @@ p {
     line-height: 113%;
     position: absolute;
     top: 15%;
-    left: 74%;
+    left: 72%;
     width: 5vw;
     height: 2.5vw;
     font-size: 1.2vw;
