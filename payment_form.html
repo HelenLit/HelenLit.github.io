@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин інструментів</title>
-    <link rel="stylesheet" type="text/css" href="./payment_style.css" />
+    <link rel="stylesheet" type="text/css" href="./payment/payment_style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -141,28 +141,31 @@
             <div class="element">
               <div class="field">Product ID</div>
               <div class="field">
-                <input
+                <input id="product-id"
                   type="text"
                   name="state"
                   class="form-control"
                   value=""
-                  placeholder="It`s ID of product you chose"
+                  placeholder="It's ID of product you chose"
+                  readonly
                 />
               </div>
             </div>
             <div class="element">
               <div class="field">Cost</div>
               <div class="field">
-                <input
+                <input id="product-cost"
                   type="text"
                   name="zip_code"
                   class="form-control"
                   value=""
-                  placeholder="It`s cost of product you chose"
+                  placeholder="It's cost of product you chose"
+                  readonly
                 />
               </div>
             </div>
           </div>
+          
 
 
 
@@ -184,7 +187,7 @@
             <label class="label--checkbox">
               <input type="checkbox" class="checkbox" />
               <p>FedEx</p>
-              <div class="pay_logo"> <img src="Fedex-logo.png" style="margin-top: -1rem;"></div>
+              <div class="pay_logo"> <img src="./payment/Fedex-logo.png" style="margin-top: -1rem;"></div>
                
             </label>
           </div>
@@ -193,7 +196,7 @@
             <label class="label--checkbox">
               <input type="checkbox" class="checkbox" />
               <p>DHL</p>
-              <div class="pay_logo"> <img src="DHL.png" style="margin-top: -1rem;"></div>
+              <div class="pay_logo"> <img src="./payment/DHL.png" style="margin-top: -1rem;"></div>
                
             </label>
           </div>
@@ -210,7 +213,7 @@
           <div class="panel-info">
             <div class="logo">
               <div class="Payment_method">Credit card</div>
-              <img src="visa-mastercard-logo.png" />
+              <img src="./payment/visa-mastercard-logo.png" />
             </div>
 
             <div class="form-group">
@@ -311,7 +314,7 @@
               <label class="label--checkbox">
                 <input type="checkbox" class="checkbox" />
                 <p >PayPal</p>
-                <div class="pay_logo"> <img src="paypal.png" style="margin-top: -1rem;"></div>
+                <div class="pay_logo"> <img src="./payment/paypal.png" style="margin-top: -1rem;"></div>
                
               </label>
             </div>
@@ -320,7 +323,7 @@
               <label class="label--checkbox">
                 <input type="checkbox" class="checkbox" />
                 <p>Bitcoin</p>
-                <div class="pay_logo"> <img src="Bitcoin.png"></div>
+                <div class="pay_logo"> <img src="./payment/Bitcoin.png"></div>
                
               </label>
             </div>
@@ -370,7 +373,7 @@
           </button>
         </div>
         <div class="secure_msg">
-        <img src="secure_img.jpg">
+        <img src="./payment/secure_img.jpg">
         <p>All your data are safe</p>
         <div class="description">We are using the most advanced security to provide you the best experience ever.</div>
       </div>

@@ -541,14 +541,13 @@ function addBuyNowEventListeners() {
     const productId = button.parentElement.getAttribute('data-id');
 
     button.addEventListener('click', function() {
-      //redirectToNewPage(productId);
-      alert(productId);
+      redirectToNewPage(productId);
     });
   });
 }
 
 // Функція, яка перенаправляє на нову сторінку з використанням переданого ID
 function redirectToNewPage(productId) {
-  var url = './main.html?id=' + productId;
+  var url = './payment_form.html?id=' + productId;
   window.open(url, '_blank');
 }
