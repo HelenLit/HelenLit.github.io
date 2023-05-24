@@ -63,14 +63,29 @@ fetch('products.json')
       // Встановлюємо галочку в чекбоксі, якщо продукт відповідає категорії або підкатегорії
       if (category === 'guitar') {
         // Встановлюємо галочки для чекбоксів від c2 до c4
-        for (let i = 2; i <= 4; i++) {
+        for (let i = 1; i <= 4; i++) {
           document.getElementById(`c${i}`).checked = true;
         }
       } else {
-        document.getElementById(`c5`).checked = false;
-        document.getElementById(`c9`).checked = false;
         // Скасовуємо галочки для чекбоксів від c5 до c12
         for (let i = 5; i <= 12; i++) {
+          document.getElementById(`c${i}`).checked = false;
+        }
+      }
+
+      // Встановлюємо галочку в чекбоксі, якщо продукт відповідає категорії або підкатегорії
+      if (category === 'drums') {
+        // Встановлюємо галочки для чекбоксів від c2 до c4
+        for (let i = 5; i <= 8; i++) {
+          document.getElementById(`c${i}`).checked = true;
+        }
+      } else {
+        // Скасовуємо галочки для чекбоксів від c5 до c12
+        for (let i = 1; i <= 4; i++) {
+          document.getElementById(`c${i}`).checked = false;
+        }
+
+        for (let i = 9; i <= 12; i++) {
           document.getElementById(`c${i}`).checked = false;
         }
       }
