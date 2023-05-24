@@ -51,9 +51,16 @@ fetch('products.json')
         <img class="itemi" src="${product.photo}" alt="product" />
         <h3>${product.name}</h3>
         <div class="category">${product.subcategory} ${product.category}</div>
+        
+        <div class='price_buy'>
         <div class="price">${product.price}</div>
         <button class="buy_now">Buy now</button>
+        </div>
       `;
+
+      if (category === 'guitars') {
+        document.getElementById('c2').checked = true;
+      }
 
       productsContainer.appendChild(productElement);
     });
@@ -221,6 +228,8 @@ const listElement = document.querySelector('.list_');
 lowHighCheckbox.addEventListener('change', function () {
   if (lowHighCheckbox.checked) {
     highLowCheckbox.checked = false;
+    zToACheckbox.checked = false;
+    aToZCheckbox.checked = false;
     listElement.classList.add('low-high');
     listElement.classList.remove('high-low');
   } else {
@@ -231,6 +240,8 @@ lowHighCheckbox.addEventListener('change', function () {
 highLowCheckbox.addEventListener('change', function () {
   if (highLowCheckbox.checked) {
     lowHighCheckbox.checked = false;
+    zToACheckbox.checked = false;
+    aToZCheckbox.checked = false;
     listElement.classList.add('high-low');
     listElement.classList.remove('low-high');
   } else {
@@ -249,12 +260,16 @@ const zToACheckbox = document.getElementById('z-a');
 aToZCheckbox.addEventListener('change', function () {
   if (aToZCheckbox.checked) {
     zToACheckbox.checked = false;
+    lowHighCheckbox.checked = false;
+    highLowCheckbox.checked = false;
   }
 });
 
 zToACheckbox.addEventListener('change', function () {
   if (zToACheckbox.checked) {
     aToZCheckbox.checked = false;
+    lowHighCheckbox.checked = false;
+    highLowCheckbox.checked = false;
   }
 });
 
@@ -519,8 +534,10 @@ resetButton.addEventListener('click', (event) => {
         <img class="itemi" src="${product.photo}" alt="product" />
         <h3>${product.name}</h3>
         <div class="category">${product.subcategory} ${product.category}</div>
+        <div class='price_buy'>
         <div class="price">${product.price}</div>
         <button class="buy_now">Buy now</button>
+        </div>
         `;
 
         // Додаємо HTML-блок до контейнера
@@ -551,3 +568,41 @@ function redirectToNewPage(productId) {
   var url = './payment_form.html?id=' + productId;
   window.open(url, '_blank');
 }
+
+
+const priceLowHighCheck = document.getElementById("low-high");
+const priceHighLowCheck = document.getElementById("high-low");
+const nameAZCheckbox = document.getElementById("a-z");
+const nameZACheckbox = document.getElementById("z-a");
+
+priceLowHighCheckbox.addEventListener("change", () => {
+  if (priceLowHighCheckbox.checked) {
+    // Вибрано "Price (Low > High)"
+    // Забезпечте, щоб інші чекбокси з групи були скасовані
+    priceHighLowCheck.checked = false;
+  }
+});
+
+priceHighLowCheckbox.addEventListener("change", () => {
+  if (priceHighLowCheckbox.checked) {
+    // Вибрано "Price (High > Low)"
+    // Забезпечте, щоб інші чекбокси з групи були скасовані
+    priceLowHighCheck.checked = false;
+  }
+});
+
+nameAZCheckbox.addEventListener("change", () => {
+  if (nameAZCheckbox.checked) {
+    // Вибрано "Name (A - Z)"
+    // Забезпечте, щоб інші чекбокси з групи були скасовані
+    nameZACheckbox.checked = false;
+  }
+});
+
+nameZACheckbox.addEventListener("change", () => {
+  if (nameZACheckbox.checked) {
+    // Вибрано "Name (Z - A)"
+    // Забезпечте, щоб інші чекбокси з групи були скасовані
+    nameAZCheckbox.checked = false;
+  }
+});
