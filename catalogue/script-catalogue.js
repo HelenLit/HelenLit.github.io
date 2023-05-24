@@ -9,13 +9,12 @@ hideEmailBtn.addEventListener('click', function () {
     emailField.style.display = 'none';
     hideEmailBtn.style.display = 'none';
     // Виводимо повідомлення з підтвердженням
-    if (email) {
-      alert(`Your email (${email}) has been successfully recorded. Thank you!`);
-    } else {
-      alert("Please enter your email!");
-    }
+    alert(`Your email (${email}) has been successfully recorded. Thank you!`);
+  } else {
+    alert("Please enter your email!");
   }
-});
+}
+);
 
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -60,36 +59,35 @@ fetch('products.json')
         </div>        
       `;
 
-      // Встановлюємо галочку в чекбоксі, якщо продукт відповідає категорії або підкатегорії
       if (category === 'guitar') {
-        // Встановлюємо галочки для чекбоксів від c2 до c4
-        for (let i = 1; i <= 4; i++) {
-          document.getElementById(`c${i}`).checked = true;
-        }
-      } else {
-        // Скасовуємо галочки для чекбоксів від c5 до c12
-        for (let i = 5; i <= 12; i++) {
-          document.getElementById(`c${i}`).checked = false;
-        }
+        document.getElementById(`c1`).checked = true;
+        document.getElementById(`c2`).checked = true;
+        document.getElementById(`c3`).checked = true;
+        document.getElementById(`c4`).checked = true;
       }
 
-      // Встановлюємо галочку в чекбоксі, якщо продукт відповідає категорії або підкатегорії
+
       if (category === 'drums') {
-        // Встановлюємо галочки для чекбоксів від c2 до c4
-        for (let i = 5; i <= 8; i++) {
-          document.getElementById(`c${i}`).checked = true;
-        }
-      } else {
-        // Скасовуємо галочки для чекбоксів від c5 до c12
-        for (let i = 1; i <= 4; i++) {
-          document.getElementById(`c${i}`).checked = false;
-        }
-
-        for (let i = 9; i <= 12; i++) {
-          document.getElementById(`c${i}`).checked = false;
-        }
+        document.getElementById(`c5`).checked = true;
+        document.getElementById(`c6`).checked = true;
+        document.getElementById(`c7`).checked = true;
+        document.getElementById(`c8`).checked = true;
       }
-      
+
+      if (category === 'keyboards') {
+        document.getElementById(`c9`).checked = true;
+        document.getElementById(`c10`).checked = true;
+        document.getElementById(`c11`).checked = true;
+        document.getElementById(`c12`).checked = true;
+      }
+
+      if (subcategory === 'ukulele') {
+        document.getElementById(`c4`).checked = true;
+      }
+
+      if (subcategory === 'hand') {
+        document.getElementById(`c6`).checked = true;
+      }
 
       productsContainer.appendChild(productElement);
     });
@@ -270,7 +268,7 @@ lowHighCheckbox.addEventListener('change', function () {
   } else {
     listElement.classList.remove('low-high');
   }
-addBuyNowEventListeners();
+  addBuyNowEventListeners();
 });
 
 highLowCheckbox.addEventListener('change', function () {
@@ -496,7 +494,7 @@ btn.addEventListener('click', (event) => {
       searchProductsByPrice(filteredProducts, productsContainer); // Викликаємо функцію для пошуку продуктів за ціною
     })
     .catch(error => console.error(error));
-    addBuyNowEventListeners();
+  addBuyNowEventListeners();
 });
 
 function filterProductsByCategoryAndSubcategory(products, values) {
@@ -523,7 +521,7 @@ function searchProductsByPrice(products, productsContainer) {
   const minPrice = parseInt(document.getElementById('Min').value);
   const maxPrice = parseInt(document.getElementById('Max').value);
 
-  if (isNaN(minPrice) || isNaN(maxPrice) || minPrice.value === '' ||maxPrice.value === '') {
+  if (isNaN(minPrice) || isNaN(maxPrice) || minPrice.value === '' || maxPrice.value === '') {
     // Якщо введені значення не є числами
     minPrice = 1000;
     maxPrice = 900000;
@@ -608,16 +606,6 @@ resetButton.addEventListener('click', (event) => {
 
 // Функція, яка додає обробник подій до кнопок "Buy Now"
 function addBuyNowEventListeners() {
-  /*const buyNowButtons = document.querySelectorAll('.buy_now');
-
-  buyNowButtons.forEach(button => {
-    const productId = button.parentElement.getAttribute('data-id');
-   
-    button.addEventListener('click', function () {
-      redirectToNewPage(productId);
-    });
-  });*/
-
   const buyNowButtons = document.querySelectorAll('.buy_now');
 
   buyNowButtons.forEach(button => {
@@ -633,5 +621,5 @@ function addBuyNowEventListeners() {
 // Функція, яка перенаправляє на нову сторінку з використанням переданого ID
 function redirectToNewPage(productId) {
   var url = './payment_form.html?id=' + productId;
-  window.open(url, '_blank');
+  window.open(url, '_self');
 }

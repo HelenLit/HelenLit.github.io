@@ -5,15 +5,15 @@ const hideEmailBtn = document.querySelector('.Email input[type="submit"]');
 
 hideEmailBtn.addEventListener('click', function () {
   const email = emailField.value; // Отримуємо значення введеної електронної пошти
-  
+
   // Перевіряємо, чи введено значення електронної пошти
   if (email) {
     emailField.style.display = 'none';
     hideEmailBtn.style.display = 'none';
     // Виводимо повідомлення з підтвердженням
-  alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
+    alert(`Your email (${email}) has been successfully recorded. Thank you!`);
   } else {
-    alert("Введіть пошту!");
+    alert("Please enter your email!");
   }
 });
 
@@ -26,7 +26,7 @@ hideEmailBtn.addEventListener('click', function () {
 var shopNowButton = document.getElementById('shop-now');
 
 shopNowButton.addEventListener('click', function () {
-  window.open('./main.html', '_blank');
+  window.open('./main.html', '_self');
 });
 
 /* -------------------------------------------------------------------------------- */
@@ -97,14 +97,14 @@ function redirectToNewPage(category) {
   //window.location.href = './main.html?category=' + category;
   // Переходимо на нову сторінку з використанням значення параметра
   var url = './main.html?category=' + category; // Приклад URL з параметром "category"
-  window.open(url, '_blank');
+  window.open(url, '_self');
 }
 
 
 
 function redirectToNewPageSubCategory(subcategory) {
   var url = './main.html?subcategory=' + subcategory;
-  window.open(url, '_blank');
+  window.open(url, '_self');
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -121,5 +121,5 @@ shopNowButtonPrice.addEventListener('click', function () {
 
 function redirectToNewPageWithRange(min, max) {
   var url = './main.html?min=' + min + '&max=' + max;
-  window.open(url, '_blank');
+  window.open(url, '_self');
 }
