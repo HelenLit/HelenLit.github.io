@@ -9,9 +9,11 @@ hideEmailBtn.addEventListener('click', function () {
     emailField.style.display = 'none';
     hideEmailBtn.style.display = 'none';
     // Виводимо повідомлення з підтвердженням
-    alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
-  } else {
-    alert("Введіть пошту!");
+    if (email) {
+      alert(`Your email (${email}) has been successfully recorded. Thank you!`);
+    } else {
+      alert("Please enter your email!");
+    }
   }
 });
 
@@ -505,6 +507,12 @@ function searchProductsByPrice(products, productsContainer) {
   const productCountElement = document.getElementById('product-count');
   const minPrice = parseInt(document.getElementById('Min').value);
   const maxPrice = parseInt(document.getElementById('Max').value);
+
+  if (isNaN(minPrice) || isNaN(maxPrice) || minPrice.value === '' ||maxPrice.value === '') {
+    // Якщо введені значення не є числами
+    minPrice = 1000;
+    maxPrice = 900000;
+  }
 
   const filteredProducts = products.filter(product => {
     const productPrice = parseInt(product.price);
