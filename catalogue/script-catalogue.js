@@ -3,13 +3,13 @@ const hideEmailBtn = document.querySelector('.Email input[type="submit"]');
 
 hideEmailBtn.addEventListener('click', function () {
   const email = emailField.value; // Отримуємо значення введеної електронної пошти
-  
+
   // Перевіряємо, чи введено значення електронної пошти
   if (email) {
     emailField.style.display = 'none';
     hideEmailBtn.style.display = 'none';
     // Виводимо повідомлення з підтвердженням
-  alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
+    alert(`Вашу пошту (${email}) успішно записано. Дякуємо!`);
   } else {
     alert("Введіть пошту!");
   }
@@ -48,19 +48,31 @@ fetch('products.json')
       productElement.classList.add('product');
       productElement.setAttribute('data-id', product.id);
       productElement.innerHTML = `
-        <img class="itemi" src="${product.photo}" alt="product" />
+        <img class="itemi" src="${product.photo}" alt="product"/>
         <h3>${product.name}</h3>
         <div class="category">${product.subcategory} ${product.category}</div>
-        
+
         <div class='price_buy'>
-        <div class="price">${product.price}</div>
-        <button class="buy_now">Buy now</button>
-        </div>
+        <div class="price">${product.price}₴</div>
+        <button class="buy_now" id="${product.id}">Buy now</button>
+        </div>        
       `;
 
-      if (category === 'guitars') {
-        document.getElementById('c2').checked = true;
+      // Встановлюємо галочку в чекбоксі, якщо продукт відповідає категорії або підкатегорії
+      if (category === 'guitar') {
+        // Встановлюємо галочки для чекбоксів від c2 до c4
+        for (let i = 2; i <= 4; i++) {
+          document.getElementById(`c${i}`).checked = true;
+        }
+      } else {
+        document.getElementById(`c5`).checked = false;
+        document.getElementById(`c9`).checked = false;
+        // Скасовуємо галочки для чекбоксів від c5 до c12
+        for (let i = 5; i <= 12; i++) {
+          document.getElementById(`c${i}`).checked = false;
+        }
       }
+      
 
       productsContainer.appendChild(productElement);
     });
@@ -79,7 +91,7 @@ fetch('products.json')
 const searchButton = document.getElementById('search-name-button');
 const searchInput = document.querySelector('.searchTerm');
 
-searchInput.addEventListener('keydown', function(event) {
+searchInput.addEventListener('keydown', function (event) {
   if (event.keyCode === 13) {
     event.preventDefault(); // Забороняємо стандартну дію Enter (наприклад, відправку форми)
     searchProducts();
@@ -121,8 +133,11 @@ function searchProducts() {
             <img class="itemi" src="${product.photo}" alt="${product.id}" />
             <h3>${product.name}</h3>
             <div class="category">${product.subcategory} ${product.category}</div>
-            <div class="price">${product.price}</div>
-            <button class="buy_now">Buy now</button>
+
+            <div class='price_buy'>
+            <div class="price">${product.price}₴</div>
+            <button class="buy_now" id="${product.id}">Buy now</button>
+            </div> 
           `;
 
         productsContainer.appendChild(productElement);
@@ -212,8 +227,11 @@ function createProductElement(product) {
     <img class="itemi" src="${product.photo}" alt="product" />
     <h3>${product.name}</h3>
     <div class="category">${product.category}</div>
-    <div class="price">${product.price}</div>
-    <button class="buy_now">Buy now</button>
+
+    <div class='price_buy'>
+    <div class="price">${product.price}₴</div>
+    <button class="buy_now" id="${product.id}">Buy now</button>
+    </div>
   `;
 
   return productElement;
@@ -235,6 +253,7 @@ lowHighCheckbox.addEventListener('change', function () {
   } else {
     listElement.classList.remove('low-high');
   }
+addBuyNowEventListeners();
 });
 
 highLowCheckbox.addEventListener('change', function () {
@@ -247,6 +266,8 @@ highLowCheckbox.addEventListener('change', function () {
   } else {
     listElement.classList.remove('high-low');
   }
+
+  addBuyNowEventListeners();
 });
 
 
@@ -263,6 +284,8 @@ aToZCheckbox.addEventListener('change', function () {
     lowHighCheckbox.checked = false;
     highLowCheckbox.checked = false;
   }
+
+  addBuyNowEventListeners();
 });
 
 zToACheckbox.addEventListener('change', function () {
@@ -271,6 +294,8 @@ zToACheckbox.addEventListener('change', function () {
     lowHighCheckbox.checked = false;
     highLowCheckbox.checked = false;
   }
+
+  addBuyNowEventListeners();
 });
 
 
@@ -348,6 +373,7 @@ function filterProducts() {
 
       // Виведення відфільтрованих продуктів
       renderProducts(filteredProducts);
+      addBuyNowEventListeners();
     })
     .catch(error => console.error(error));
 }
@@ -366,8 +392,10 @@ function renderProducts(products) {
       <img class="itemi" src="${product.photo}" alt="product" />
       <h3>${product.name}</h3>
       <div class="category">${product.subcategory} ${product.category}</div>
-      <div class="price">${product.price}</div>
-      <button class="buy_now">Buy now</button>
+      <div class='price_buy'>
+      <div class="price">${product.price}₴</div>
+      <button class="buy_now" id="${product.id}">Buy now</button>
+      </div>
     `;
 
     productsContainer.appendChild(productElement);
@@ -400,12 +428,12 @@ maxPriceSlider.addEventListener('input', updateMaxPriceInput);
 
 // Функція оновлення значення текстового поля мінімальної ціни при зміні повзунка
 function updateMinPriceInput() {
-  minPriceInput.value = minPriceSlider.value + "$";
+  minPriceInput.value = minPriceSlider.value + "₴";
 }
 
 // Функція оновлення значення текстового поля максимальної ціни при зміні повзунка
 function updateMaxPriceInput() {
-  maxPriceInput.value = maxPriceSlider.value + "$";
+  maxPriceInput.value = maxPriceSlider.value + "₴";
 }
 
 // Додаємо обробники подій input до текстових полів
@@ -451,6 +479,7 @@ btn.addEventListener('click', (event) => {
       searchProductsByPrice(filteredProducts, productsContainer); // Викликаємо функцію для пошуку продуктів за ціною
     })
     .catch(error => console.error(error));
+    addBuyNowEventListeners();
 });
 
 function filterProductsByCategoryAndSubcategory(products, values) {
@@ -490,8 +519,11 @@ function searchProductsByPrice(products, productsContainer) {
     <img class="itemi" src="${product.photo}" alt="product" />
     <h3>${product.name}</h3>
     <div class="category">${product.subcategory} ${product.category}</div>
-    <div class="price">${product.price}</div>
-    <button class="buy_now">Buy now</button>
+
+    <div class='price_buy'>
+    <div class="price">${product.price}₴</div>
+    <button class="buy_now" id="${product.id}">Buy now</button>
+    </div>
     `;
 
     // Додаємо HTML-блок до контейнера
@@ -534,9 +566,10 @@ resetButton.addEventListener('click', (event) => {
         <img class="itemi" src="${product.photo}" alt="product" />
         <h3>${product.name}</h3>
         <div class="category">${product.subcategory} ${product.category}</div>
+
         <div class='price_buy'>
-        <div class="price">${product.price}</div>
-        <button class="buy_now">Buy now</button>
+        <div class="price">${product.price}₴</div>
+        <button class="buy_now" id="${product.id}">Buy now</button>
         </div>
         `;
 
@@ -552,12 +585,23 @@ resetButton.addEventListener('click', (event) => {
 
 // Функція, яка додає обробник подій до кнопок "Buy Now"
 function addBuyNowEventListeners() {
-  const buyNowButtons = document.querySelectorAll('.buy_now');
+  /*const buyNowButtons = document.querySelectorAll('.buy_now');
 
   buyNowButtons.forEach(button => {
     const productId = button.parentElement.getAttribute('data-id');
+   
+    button.addEventListener('click', function () {
+      redirectToNewPage(productId);
+    });
+  });*/
 
-    button.addEventListener('click', function() {
+  const buyNowButtons = document.querySelectorAll('.buy_now');
+
+  buyNowButtons.forEach(button => {
+    const buttonId = button.id;
+    const productId = buttonId.split('_')[0];
+
+    button.addEventListener('click', function () {
       redirectToNewPage(productId);
     });
   });
@@ -568,41 +612,3 @@ function redirectToNewPage(productId) {
   var url = './payment_form.html?id=' + productId;
   window.open(url, '_blank');
 }
-
-
-const priceLowHighCheck = document.getElementById("low-high");
-const priceHighLowCheck = document.getElementById("high-low");
-const nameAZCheckbox = document.getElementById("a-z");
-const nameZACheckbox = document.getElementById("z-a");
-
-priceLowHighCheckbox.addEventListener("change", () => {
-  if (priceLowHighCheckbox.checked) {
-    // Вибрано "Price (Low > High)"
-    // Забезпечте, щоб інші чекбокси з групи були скасовані
-    priceHighLowCheck.checked = false;
-  }
-});
-
-priceHighLowCheckbox.addEventListener("change", () => {
-  if (priceHighLowCheckbox.checked) {
-    // Вибрано "Price (High > Low)"
-    // Забезпечте, щоб інші чекбокси з групи були скасовані
-    priceLowHighCheck.checked = false;
-  }
-});
-
-nameAZCheckbox.addEventListener("change", () => {
-  if (nameAZCheckbox.checked) {
-    // Вибрано "Name (A - Z)"
-    // Забезпечте, щоб інші чекбокси з групи були скасовані
-    nameZACheckbox.checked = false;
-  }
-});
-
-nameZACheckbox.addEventListener("change", () => {
-  if (nameZACheckbox.checked) {
-    // Вибрано "Name (Z - A)"
-    // Забезпечте, щоб інші чекбокси з групи були скасовані
-    nameAZCheckbox.checked = false;
-  }
-});
